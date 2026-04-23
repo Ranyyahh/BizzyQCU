@@ -1,0 +1,25 @@
+@model IPT_Juvi.Web.Models.ViewModels.AddFundsViewModel
+@{
+    ViewData["Title"] = "Add Funds";
+    ViewData["Nav"] = "Dashboard";
+}
+
+<div class="bizzy-shell">
+    <div class="bizzy-card">
+        <div class="bizzy-panel-title">Add Funds</div>
+        <div class="bizzy-panel-hr"></div>
+
+        <form asp-controller="Account" asp-action="AddFunds" method="post" class="bizzy-panel">
+            @Html.AntiForgeryToken()
+            <div class="bizzy-form-row" style="grid-template-columns: 120px 220px;">
+                <label asp-for="Amount">Amount (₱)</label>
+                <input class="bizzy-input" asp-for="Amount" />
+            </div>
+            <div class="bizzy-form-actions">
+                <a class="bizzy-btn bizzy-btn-outline" asp-controller="Account" asp-action="Profile">Cancel</a>
+                <button class="bizzy-btn bizzy-btn-primary" type="submit">Confirm Top-up</button>
+            </div>
+        </form>
+    </div>
+</div>
+

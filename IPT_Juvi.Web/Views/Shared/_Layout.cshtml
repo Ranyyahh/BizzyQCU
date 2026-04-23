@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - BizzyQCU</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/bizzyqcu.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/IPT_Juvi.Web.styles.css" asp-append-version="true" />
+</head>
+<body class="bizzy-body">
+    @{
+        var nav = (ViewData["Nav"] as string) ?? "Dashboard";
+    }
+
+    <header class="bizzy-topbar">
+        <div class="bizzy-topbar-inner">
+            @if (string.Equals(nav, "Site", StringComparison.OrdinalIgnoreCase))
+            {
+                <partial name="_NavSite" />
+            }
+            else
+            {
+                <partial name="_NavDashboard" />
+            }
+        </div>
+    </header>
+
+    <div class="bizzy-bg">
+        <partial name="_Toasts" />
+        @RenderBody()
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/bizzyqcu.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,22 @@
+@model IPT_Juvi.Web.Models.ViewModels.WalletViewModel
+@{
+    ViewData["Title"] = "Wallet";
+    ViewData["Nav"] = "Dashboard";
+}
+
+<div class="bizzy-shell">
+    <div class="bizzy-card">
+        <div class="bizzy-panel-title dark">Wallet</div>
+        <div class="bizzy-panel-hr"></div>
+
+        <div class="bizzy-panel">
+            <div style="font-weight:900;font-size:14px;">Current Balance</div>
+            <div style="font-weight:900;font-size:22px;color:#0a8c2a;margin-top:6px;">₱ @Model.WalletBalance.ToString("N2")</div>
+            <div class="bizzy-actions" style="margin-top:14px;">
+                <a class="bizzy-btn bizzy-btn-primary" asp-controller="Account" asp-action="AddFunds">+ Add Funds</a>
+                <a class="bizzy-btn bizzy-btn-outline" asp-controller="Account" asp-action="Transactions">Transaction History</a>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,39 @@
+<nav class="bizzy-nav bizzy-nav-dashboard" aria-label="Primary">
+    <a class="bizzy-logo" asp-controller="Account" asp-action="Profile" aria-label="BizzyQCU">
+        <img src="~/img/logo-bizzyqcu.png" alt="BizzyQCU" />
+    </a>
+
+    <div class="bizzy-nav-links" data-bizzy-menu>
+        <a class="bizzy-nav-item" asp-controller="Account" asp-action="Profile">
+            <span class="bizzy-nav-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12a4.2 4.2 0 1 0-4.2-4.2A4.2 4.2 0 0 0 12 12Zm0 2c-4 0-7.2 2.2-7.2 5v1h14.4v-1c0-2.8-3.2-5-7.2-5Z"/></svg>
+            </span>
+            <span class="bizzy-nav-label">PROFILE</span>
+        </a>
+
+        <a class="bizzy-nav-item" asp-controller="Account" asp-action="Settings">
+            <span class="bizzy-nav-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.14 12.94a7.9 7.9 0 0 0 .05-.94 7.9 7.9 0 0 0-.05-.94l2.03-1.58a.5.5 0 0 0 .12-.63l-1.92-3.32a.5.5 0 0 0-.6-.22l-2.39.96a7.47 7.47 0 0 0-1.63-.94l-.36-2.54A.5.5 0 0 0 13.9 1h-3.8a.5.5 0 0 0-.49.42l-.36 2.54c-.57.24-1.11.55-1.63.94l-2.39-.96a.5.5 0 0 0-.6.22L2.7 7.48a.5.5 0 0 0 .12.63l2.03 1.58a7.9 7.9 0 0 0-.05.94c0 .32.02.63.05.94L2.82 14.5a.5.5 0 0 0-.12.63l1.92 3.32a.5.5 0 0 0 .6.22l2.39-.96c.51.39 1.06.7 1.63.94l.36 2.54a.5.5 0 0 0 .49.42h3.8a.5.5 0 0 0 .49-.42l.36-2.54c.57-.24 1.11-.55 1.63-.94l2.39.96a.5.5 0 0 0 .6-.22l1.92-3.32a.5.5 0 0 0-.12-.63ZM12 15.5A3.5 3.5 0 1 1 15.5 12 3.5 3.5 0 0 1 12 15.5Z"/></svg>
+            </span>
+            <span class="bizzy-nav-label">ACCOUNT SETTINGS</span>
+        </a>
+
+        <a class="bizzy-nav-item" asp-controller="Account" asp-action="Orders">
+            <span class="bizzy-nav-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 2a1 1 0 0 0-1 1v1H5a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1V3a1 1 0 1 0-2 0v1H8V3a1 1 0 0 0-1-1Zm12 7H5V6h14Zm-9 4h4v2h-4Zm0 4h7v2h-7Z"/></svg>
+            </span>
+            <span class="bizzy-nav-label">ORDERS</span>
+        </a>
+
+        <a class="bizzy-nav-item" asp-controller="Account" asp-action="Wallet">
+            <span class="bizzy-nav-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 7a3 3 0 0 1 3-3h13a2 2 0 0 1 2 2v2h-5a3 3 0 0 0 0 6h5v4a2 2 0 0 1-2 2H6a3 3 0 0 1-3-3Zm18 5h-5a1 1 0 0 1 0-2h5Z"/></svg>
+            </span>
+            <span class="bizzy-nav-label">WALLET</span>
+        </a>
+    </div>
+
+    <button class="bizzy-hamburger" type="button" data-bizzy-menu-toggle aria-label="Menu">
+        <span></span><span></span><span></span>
+    </button>
+</nav>

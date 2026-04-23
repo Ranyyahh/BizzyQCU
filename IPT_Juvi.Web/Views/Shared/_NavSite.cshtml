@@ -1,0 +1,35 @@
+<nav class="bizzy-nav bizzy-nav-site" aria-label="Primary">
+    <a class="bizzy-logo" asp-controller="Home" asp-action="Index" aria-label="BizzyQCU">
+        <img src="~/img/logo-bizzyqcu.png" alt="BizzyQCU" />
+    </a>
+
+    <div class="bizzy-nav-site-links">
+        <a class="bizzy-site-link" asp-controller="Home" asp-action="Index">HOME</a>
+        <a class="bizzy-site-link" asp-controller="Products" asp-action="Index">PRODUCTS</a>
+        <a class="bizzy-site-link" asp-controller="Enterprises" asp-action="Index">ENTERPRISES</a>
+        <a class="bizzy-site-link" asp-controller="Home" asp-action="Privacy">ABOUT US</a>
+    </div>
+
+    <div class="bizzy-nav-site-icons">
+        <a class="bizzy-icon-btn" asp-controller="Account" asp-action="Orders" aria-label="Cart">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18a2 2 0 1 0 2 2 2 2 0 0 0-2-2Zm10 0a2 2 0 1 0 2 2 2 2 0 0 0-2-2ZM6.2 6l.6 3h12.7a1 1 0 0 1 1 .8l.9 4.2a2 2 0 0 1-2 2.4H7.2a2 2 0 0 1-2-1.6L3 3H1V1h3a1 1 0 0 1 1 .8L5.6 4H22v2Z"/></svg>
+        </a>
+        <a class="bizzy-icon-btn" asp-controller="Account" asp-action="Profile" aria-label="Profile">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12a4.2 4.2 0 1 0-4.2-4.2A4.2 4.2 0 0 0 12 12Zm0 2c-4 0-7.2 2.2-7.2 5v1h14.4v-1c0-2.8-3.2-5-7.2-5Z"/></svg>
+        </a>
+    </div>
+
+    <div class="bizzy-nav-links bizzy-nav-site-mobile" data-bizzy-menu>
+        <a class="bizzy-nav-item" asp-controller="Home" asp-action="Index">HOME</a>
+        <a class="bizzy-nav-item" asp-controller="Products" asp-action="Index">PRODUCTS</a>
+        <a class="bizzy-nav-item" asp-controller="Enterprises" asp-action="Index">ENTERPRISES</a>
+        <a class="bizzy-nav-item" asp-controller="Home" asp-action="Privacy">ABOUT US</a>
+        <hr style="margin:8px 0;border-color:rgba(0,0,0,.15);" />
+        <a class="bizzy-nav-item" asp-controller="Account" asp-action="Orders">CART</a>
+        <a class="bizzy-nav-item" asp-controller="Account" asp-action="Profile">PROFILE</a>
+    </div>
+
+    <button class="bizzy-hamburger" type="button" data-bizzy-menu-toggle aria-label="Menu">
+        <span></span><span></span><span></span>
+    </button>
+</nav>

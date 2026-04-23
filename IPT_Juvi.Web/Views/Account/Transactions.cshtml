@@ -1,0 +1,42 @@
+@model IPT_Juvi.Web.Models.ViewModels.TransactionsViewModel
+@{
+    ViewData["Title"] = "Transaction History";
+    ViewData["Nav"] = "Dashboard";
+}
+
+<div class="bizzy-shell">
+    <div class="bizzy-card">
+        <div class="bizzy-panel-title dark">Transaction History</div>
+        <div class="bizzy-panel-hr"></div>
+
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px;">
+            <div style="font-weight:900;">Wallet Balance: ₱ @Model.WalletBalance.ToString("N2")</div>
+            <a class="bizzy-btn bizzy-btn-primary" asp-controller="Account" asp-action="AddFunds">+ Add Funds</a>
+        </div>
+
+        <div class="bizzy-panel" style="overflow:auto;">
+            <table class="table table-sm mb-0" style="font-size:12px;">
+                <thead>
+                    <tr>
+                        <th style="min-width:150px;">Date</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                        <th class="text-end">Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @foreach (var t in Model.Transactions)
+                {
+                    <tr>
+                        <td>@t.CreatedAt.ToLocalTime().ToString("MMM dd, yyyy HH:mm")</td>
+                        <td>@t.Type</td>
+                        <td>@t.Description</td>
+                        <td class="text-end">@((t.Amount == 0 ? "-" : ("₱ " + t.Amount.ToString("N2"))))</td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

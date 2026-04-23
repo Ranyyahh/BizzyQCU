@@ -1,0 +1,19 @@
+@{
+    var success = TempData["ToastSuccess"] as string;
+    var error = TempData["ToastError"] as string;
+}
+
+@if (!string.IsNullOrWhiteSpace(success) || !string.IsNullOrWhiteSpace(error))
+{
+    <div class="bizzy-toast-wrap" role="status" aria-live="polite">
+        @if (!string.IsNullOrWhiteSpace(success))
+        {
+            <div class="bizzy-toast bizzy-toast-success">@success</div>
+        }
+        @if (!string.IsNullOrWhiteSpace(error))
+        {
+            <div class="bizzy-toast bizzy-toast-error">@error</div>
+        }
+    </div>
+}
+

@@ -1,0 +1,96 @@
+@model IPT_Juvi.Web.Models.ViewModels.ProfileSettingsViewModel
+@{
+    ViewData["Title"] = "User Profile";
+    ViewData["Nav"] = "Site";
+}
+
+<div class="bizzy-shell bizzy-settings">
+    <button class="bizzy-back" type="button" data-bizzy-back aria-label="Back">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 1 0 1.4L10.4 12l4.3 4.3a1 1 0 1 1-1.4 1.4l-5-5a1 1 0 0 1 0-1.4l5-5a1 1 0 0 1 1.4 0Z"/></svg>
+    </button>
+
+    <div class="bizzy-card bizzy-settings-card">
+        <div class="bizzy-panel-title">User Profile</div>
+        <div class="bizzy-panel-hr"></div>
+
+        <form asp-controller="Account" asp-action="Settings" method="post" enctype="multipart/form-data" data-bizzy-photo-form>
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="submit" value="save" data-bizzy-submit-mode />
+
+            <input type="file" name="photo" accept="image/*" style="display:none" data-bizzy-photo-input />
+
+            <div class="bizzy-settings-top">
+                <div class="bizzy-avatar bizzy-settings-avatar">
+                    <img src="@(Model.PhotoPath ?? "/img/avatar-default.svg")" alt="Profile Photo" />
+                </div>
+                <div class="bizzy-settings-top-actions">
+                    <button class="bizzy-btn bizzy-btn-primary" type="button" data-bizzy-change-photo>Change Photo</button>
+                    <button class="bizzy-btn bizzy-btn-primary bizzy-settings-edit" type="button" data-bizzy-toggle-edit>Edit Info</button>
+                </div>
+            </div>
+
+            <div class="bizzy-settings-hr"></div>
+
+            <div class="bizzy-settings-body">
+                <section class="bizzy-settings-section">
+                    <div class="bizzy-settings-section-title">Enterprise Name</div>
+                    <div class="bizzy-settings-section-hr"></div>
+
+                    <div class="bizzy-form-row">
+                        <label asp-for="EnterpriseName">Enterprise Name</label>
+                        <input class="bizzy-input" asp-for="EnterpriseName" readonly data-bizzy-editable />
+                    </div>
+                    <div class="bizzy-form-row">
+                        <label asp-for="EnterpriseType">Enterprise Type</label>
+                        <input class="bizzy-input" asp-for="EnterpriseType" readonly data-bizzy-editable />
+                    </div>
+                    <div class="bizzy-form-row">
+                        <label asp-for="Contact">Contact</label>
+                        <input class="bizzy-input" asp-for="Contact" readonly data-bizzy-editable />
+                    </div>
+                    <div class="bizzy-form-row">
+                        <label asp-for="Email">Email</label>
+                        <input class="bizzy-input" asp-for="Email" readonly data-bizzy-editable />
+                    </div>
+
+                    <div class="bizzy-form-actions bizzy-settings-validation">
+                        <span class="text-danger" style="font-size:12px;font-weight:700;">@Html.ValidationSummary()</span>
+                    </div>
+                </section>
+
+                <div class="bizzy-settings-divider" aria-hidden="true"></div>
+
+                <section class="bizzy-settings-section">
+                    <div class="bizzy-settings-section-title">Manager Profile</div>
+                    <div class="bizzy-settings-section-hr"></div>
+
+                    <div class="bizzy-form-row">
+                        <label asp-for="ManagerName">Name</label>
+                        <input class="bizzy-input" asp-for="ManagerName" readonly data-bizzy-editable />
+                    </div>
+                    <div class="bizzy-form-row">
+                        <label asp-for="StudentId">Student ID</label>
+                        <input class="bizzy-input" asp-for="StudentId" readonly data-bizzy-editable />
+                    </div>
+                    <div class="bizzy-form-row bizzy-settings-row-section">
+                        <label asp-for="Section">Section</label>
+                        <input class="bizzy-input" asp-for="Section" readonly data-bizzy-editable />
+                    </div>
+                    <div class="bizzy-form-row">
+                        <label asp-for="ManagerContact">Contact</label>
+                        <input class="bizzy-input" asp-for="ManagerContact" readonly data-bizzy-editable />
+                    </div>
+                    <div class="bizzy-form-row bizzy-settings-row-email">
+                        <label asp-for="ManagerEmail">Email</label>
+                        <input class="bizzy-input" asp-for="ManagerEmail" readonly data-bizzy-editable />
+                    </div>
+                </section>
+            </div>
+
+            <div class="bizzy-settings-actions">
+                <a class="bizzy-btn bizzy-btn-primary" style="color:#35ff4d;" asp-controller="Account" asp-action="ChangePassword">Change Password</a>
+                <button class="bizzy-btn bizzy-btn-primary" style="color:#35ff4d;" type="submit">Save</button>
+            </div>
+        </form>
+    </div>
+</div>

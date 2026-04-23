@@ -1,0 +1,6 @@
+.cache/
+node_modules/
+bin/
+obj/
+.vs/
+*.log

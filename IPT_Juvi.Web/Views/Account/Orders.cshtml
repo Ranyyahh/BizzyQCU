@@ -1,0 +1,39 @@
+@model IPT_Juvi.Web.Models.ViewModels.OrdersViewModel
+@{
+    ViewData["Title"] = "Orders";
+    ViewData["Nav"] = "Dashboard";
+}
+
+<div class="bizzy-shell">
+    <div class="bizzy-card">
+        <div class="bizzy-panel-title dark">Orders</div>
+        <div class="bizzy-panel-hr"></div>
+
+        <div class="bizzy-panel" style="overflow:auto;">
+            <table class="table table-sm mb-0" style="font-size:12px;">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Date</th>
+                        <th>Customer</th>
+                        <th>Status</th>
+                        <th class="text-end">Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @foreach (var o in Model.Orders)
+                {
+                    <tr>
+                        <td>@o.Id</td>
+                        <td>@o.OrderedAt.ToLocalTime().ToString("MMM dd, yyyy")</td>
+                        <td>@o.CustomerName</td>
+                        <td>@o.Status</td>
+                        <td class="text-end">₱ @o.Total.ToString("N2")</td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
