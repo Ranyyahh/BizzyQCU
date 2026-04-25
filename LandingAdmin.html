@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BizzyQCU – Admin Dashboard</title>
+    <link rel="stylesheet" href="LandingAdmin.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="nav-logo">
+            <div class="logo-icon">
+            </div>           
+        </div>
+
+        <div class="nav-title">Admin Dashboard</div>
+
+        <button class="logout-btn" id="logoutBtn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                <polyline points="16,17 21,12 16,7" />
+                <line x1="21" y1="12" x2="9" y2="12" />
+            </svg>
+            Logout
+        </button>
+    </header>
+
+    <main class="Mainpage">
+
+        <a href="#users" class="panel panel-left" id="panelUsers">
+            <div class="panel-image panel-image-left"></div>
+            <div class="panel-overlay panel-overlay-left"></div>
+            <div class="panel-content">
+                <h2 class="panel-label">USERS</h2>
+                <p class="panel-hint">Manage user accounts</p>
+                <div class="panel-arrow">→</div>
+            </div>
+        </a>
+
+        <a href="#enterprises" class="panel panel-right" id="panelEnterprises">
+            <div class="panel-image panel-image-right"></div>
+            <div class="panel-overlay panel-overlay-right"></div>
+            <div class="panel-content">
+                <h2 class="panel-label">Enterprises</h2>
+                <p class="panel-hint">Manage enterprise listings</p>
+                <div class="panel-arrow">→</div>
+            </div>
+        </a>
+
+        <div class="welcome-card" id="welcomeCard">
+            <div class="welcome-chip">Admin Panel</div>
+            <h1 class="welcome-title">WELCOME</h1>
+            <p class="welcome-sub">BizzyQCU's Admin Page</p>
+            <div class="welcome-divider"></div>
+            <p class="welcome-cta">
+                Select your destination
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12,5 19,12 12,19" />
+                </svg>
+            </p>
+        </div>
+
+    </main>
+
+    <div class="modal-backdrop" id="modalBackdrop">
+        <div class="modal" id="logoutModal">
+            <div class="modal-icon-wrap">
+                <div class="modal-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                        <polyline points="16,17 21,12 16,7" />
+                        <line x1="21" y1="12" x2="9" y2="12" />
+                    </svg>
+                </div>
+            </div>
+            <h2 class="modal-title">Leaving so soon?</h2>
+            <p class="modal-body">You're about to log out of the <strong>BizzyQCU Admin Dashboard</strong>. Any unsaved changes will be lost.</p>
+            <div class="modal-actions">
+                <button class="modal-btn modal-cancel" id="cancelLogout">Stay Here</button>
+                <button class="modal-btn modal-confirm" id="confirmLogout">Yes, Log Out</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="LandingAdmin.js"></script>
+</body>
+</html>

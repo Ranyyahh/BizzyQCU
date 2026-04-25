@@ -1,0 +1,12 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="LandingAdmin.html" />
+  </Folder>
+  <Folder Name="/Solution Items/Css/">
+    <File Path="LandingAdmin.css" />
+  </Folder>
+  <Folder Name="/Solution Items/Images/" />
+  <Folder Name="/Solution Items/Scripts/">
+    <File Path="LandingAdmin.js" />
+  </Folder>
+</Solution>
