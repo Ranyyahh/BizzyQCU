@@ -555,38 +555,15 @@ body.view-enterprise-bg {
     gap: 5px;
 }
 
-    .ent-info h2 {
-        font-weight: bold;
-        color: #111fa2;
-    }
+.ent-info h2 {
+    font-weight: bold;
+    color: #111fa2;
+}
 
 .status-online {
     font-size: 20px;
     color: #111fa2;
 }
-
-.ent-msg-btn {
-    width: 160px;
-    height: 42px;
-    border-radius: 12px;
-    border: none;
-    background: #f6f6f6;
-    color: #111fa2;
-    font-weight: 600;
-    font-size: 14px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(17, 31, 162, 0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-    .ent-msg-btn:hover {
-        color: #111fa2;
-        transform: translateY(-2px);
-        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-    }
 
 .enterprise-picture {
     width: 120px;
@@ -898,36 +875,36 @@ body.view-enterprise-bg {
     }
 
     .enterprise-header {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
+        flex-direction: row;
+        align-items: flex-start;
+        text-align: left;
         padding: 20px;
     }
 
     .left-section {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 15px;
     }
 
     .ent-info {
-        align-items: center;
+        align-items: flex-start;
+        text-align: left;
+        flex-direction: column;
+        display: flex;
     }
 
     .enterprise-picture {
-        width: 90px;
-        height: 90px;
+        width: 140px;
+        height: 140px;
+    }
+
+    .status-online {
+        font-size: 15px;
     }
 
     .ent-info h2 {
-        font-size: 1.6rem;
-    }
-
-    .ent-msg-btn {
-        width: 100%;
-        max-width: 280px;
-        height: 45px;
-        margin-top: 8px;
+        font-size: 2rem;
     }
 
     .ent-product-section {
