@@ -3,6 +3,7 @@
     <File Path="LandingAdmin.html" />
   </Folder>
   <Folder Name="/Solution Items/Css/">
+    <File Path="Fonts.css" />
     <File Path="LandingAdmin.css" />
   </Folder>
   <Folder Name="/Solution Items/Images/" />
