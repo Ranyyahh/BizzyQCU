@@ -1,6 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\IPT_Juvi.Web",
+    "\\IPT_Juvi.Web\\Models",
+    "\\IPT_Juvi.Web\\Models\\Bizzy"
   ],
+  "SelectedNode": "\\IPT_Juvi.Web\\Models\\Bizzy\\ManagerProfile.cs",
   "PreviewInSolutionExplorer": false
 }

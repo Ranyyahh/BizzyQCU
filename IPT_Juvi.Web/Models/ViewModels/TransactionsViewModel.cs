@@ -1,10 +1,8 @@
-using IPT_Juvi.Web.Models.Bizzy;
-
 namespace IPT_Juvi.Web.Models.ViewModels;
 
 public sealed class TransactionsViewModel
 {
-    public decimal WalletBalance { get; init; }
-    public IReadOnlyList<TransactionRecord> Transactions { get; init; } = Array.Empty<TransactionRecord>();
+    public string? Query { get; init; }
+    public IReadOnlyList<IPT_Juvi.Web.Models.Bizzy.SalesTransactionRow> Rows { get; init; } =
+        Array.Empty<IPT_Juvi.Web.Models.Bizzy.SalesTransactionRow>();
 }
-

@@ -1,7 +1,10 @@
 <nav class="bizzy-nav bizzy-nav-site" aria-label="Primary">
-    <a class="bizzy-logo" asp-controller="Home" asp-action="Index" aria-label="BizzyQCU">
-        <img src="~/img/logo-bizzyqcu.png" alt="BizzyQCU" />
-    </a>
+    <div class="bizzy-nav-site-left">
+        <a class="bizzy-logo" asp-controller="Home" asp-action="Index" aria-label="BizzyQCU">
+            <img src="~/img/logo-bizzyqcu.png" alt="BizzyQCU" />
+        </a>
+        <div class="bizzy-site-divider" aria-hidden="true"></div>
+    </div>
 
     <div class="bizzy-nav-site-links">
         <a class="bizzy-site-link" asp-controller="Home" asp-action="Index">HOME</a>
@@ -10,7 +13,7 @@
         <a class="bizzy-site-link" asp-controller="Home" asp-action="Privacy">ABOUT US</a>
     </div>
 
-    <div class="bizzy-nav-site-icons">
+    <div class="bizzy-nav-site-right">
         <a class="bizzy-icon-btn" asp-controller="Account" asp-action="Orders" aria-label="Cart">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18a2 2 0 1 0 2 2 2 2 0 0 0-2-2Zm10 0a2 2 0 1 0 2 2 2 2 0 0 0-2-2ZM6.2 6l.6 3h12.7a1 1 0 0 1 1 .8l.9 4.2a2 2 0 0 1-2 2.4H7.2a2 2 0 0 1-2-1.6L3 3H1V1h3a1 1 0 0 1 1 .8L5.6 4H22v2Z"/></svg>
         </a>

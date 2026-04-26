@@ -1,7 +1,7 @@
 @model IPT_Juvi.Web.Models.ViewModels.ProfileDashboardViewModel
 @{
     ViewData["Title"] = "Profile";
-    ViewData["Nav"] = "Dashboard";
+    ViewData["Nav"] = "SiteExact";
 }
 
 <div class="bizzy-shell">
@@ -26,13 +26,19 @@
                 <div class="v">@Model.EnterpriseName</div>
                 <div class="k">Type</div>
                 <div class="v">@Model.EnterpriseType</div>
-                <div class="k">Phone</div>
+                <div class="k">GCash No.</div>
                 <div class="v">@Model.Phone</div>
                 <div class="k">Role</div>
                 <div class="v">@Model.Role</div>
             </div>
 
             <div class="bizzy-hero-actions">
+                @if (!string.IsNullOrWhiteSpace(Model.PaymentQrPath))
+                {
+                    <div class="bizzy-hero-qr">
+                        <img src="@Model.PaymentQrPath" alt="GCash QR" />
+                    </div>
+                }
                 <a class="bizzy-btn bizzy-btn-outline" asp-controller="Account" asp-action="Settings" aria-label="Edit">
                     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 17.25V21h3.75L17.8 9.95l-3.75-3.75L3 17.25Zm18-11.5a1 1 0 0 0 0-1.4l-1.35-1.35a1 1 0 0 0-1.4 0l-1.06 1.06 3.75 3.75Z"/></svg>
                     Edit
@@ -78,11 +84,10 @@
                     <div class="bizzy-sales">
                         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1a5 5 0 0 0-5 5c0 2.76 2.24 5 5 5s5-2.24 5-5a5 5 0 0 0-5-5Zm-7 21h14v-2a7 7 0 0 0-14 0Z"/></svg>
                         <div class="n">Total Sales</div>
-                        <div class="v">₱ @Model.TotalSales.ToString("N2")</div>
+                        <div class="v">&#8369; @Model.TotalSales.ToString("N2")</div>
                     </div>
 
                     <div class="bizzy-actions">
-                        <a class="bizzy-btn bizzy-btn-primary" asp-controller="Account" asp-action="AddFunds">+ Add Funds</a>
                         <a class="bizzy-btn bizzy-btn-outline" asp-controller="Account" asp-action="Transactions">Transaction History</a>
                     </div>
                 </div>

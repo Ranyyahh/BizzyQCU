@@ -17,5 +17,5 @@ public sealed class ProfileDashboardViewModel
 
     public decimal WalletBalance { get; init; }
     public string? PhotoPath { get; init; }
+    public string? PaymentQrPath { get; init; }
 }
-

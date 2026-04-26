@@ -5,6 +5,7 @@ namespace IPT_Juvi.Web.Models.ViewModels;
 public sealed class ProfileSettingsViewModel
 {
     public string? PhotoPath { get; init; }
+    public string? PaymentQrPath { get; init; }
 
     [Required]
     public string EnterpriseName { get; set; } = "";

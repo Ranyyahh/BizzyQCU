@@ -9,5 +9,5 @@ public sealed class EnterpriseProfile
     public string Role { get; set; } = "";
 
     public string? PhotoPath { get; set; }
+    public string? PaymentQrPath { get; set; }
 }
-

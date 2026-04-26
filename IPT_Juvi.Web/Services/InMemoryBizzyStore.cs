@@ -17,6 +17,7 @@ public sealed class InMemoryBizzyStore
         Email = "PabloEscubz@gmail.com",
         Role = "Innovation Strategist",
         PhotoPath = "/img/avatar-default.svg",
+        PaymentQrPath = null,
     };
 
     private readonly ManagerProfile _manager = new()
@@ -30,6 +31,7 @@ public sealed class InMemoryBizzyStore
 
     private readonly List<OrderRecord> _orders = new();
     private readonly List<TransactionRecord> _transactions = new();
+    private readonly List<SalesTransactionRow> _salesTransactions = new();
 
     private decimal _walletBalance = 50_000m;
     private int _nextTxId = 1;
@@ -58,6 +60,42 @@ public sealed class InMemoryBizzyStore
             Amount = 50_000m,
         });
 
+        _salesTransactions.AddRange(new[]
+        {
+            new SalesTransactionRow
+            {
+                Id = 1,
+                UserName = "Rick Grimes",
+                ProductSummary = "2x Pork Sisig Rice, 1x Mountain Dew",
+                Date = new DateOnly(2026, 4, 25),
+                Total = 700m,
+            },
+            new SalesTransactionRow
+            {
+                Id = 2,
+                UserName = "Boy Abunda",
+                ProductSummary = "1x Caramel Macchiato, 1x Tuna Sandwich",
+                Date = new DateOnly(2026, 4, 22),
+                Total = 1000m,
+            },
+            new SalesTransactionRow
+            {
+                Id = 3,
+                UserName = "Carl Poppa",
+                ProductSummary = "4pcs Pork Siomai, 1x Gulaman",
+                Date = new DateOnly(2026, 4, 15),
+                Total = 300m,
+            },
+            new SalesTransactionRow
+            {
+                Id = 4,
+                UserName = "Raja Kulambu",
+                ProductSummary = "1x Beef Pares w/ Rice",
+                Date = new DateOnly(2026, 3, 29),
+                Total = 500m,
+            },
+        });
+
         (_passwordSaltB64, _passwordHashB64) = HashPassword("password");
     }
 
@@ -79,6 +117,7 @@ public sealed class InMemoryBizzyStore
                 TotalSales = 50_000m,
                 WalletBalance = _walletBalance,
                 PhotoPath = _enterprise.PhotoPath,
+                PaymentQrPath = _enterprise.PaymentQrPath,
             };
         }
     }
@@ -90,6 +129,7 @@ public sealed class InMemoryBizzyStore
             return new ProfileSettingsViewModel
             {
                 PhotoPath = _enterprise.PhotoPath,
+                PaymentQrPath = _enterprise.PaymentQrPath,
                 EnterpriseName = _enterprise.EnterpriseName,
                 EnterpriseType = _enterprise.EnterpriseType,
                 Contact = _enterprise.Phone,
@@ -128,6 +168,14 @@ public sealed class InMemoryBizzyStore
         }
     }
 
+    public void UpdatePaymentQrPath(string qrPath)
+    {
+        lock (_gate)
+        {
+            _enterprise.PaymentQrPath = qrPath;
+        }
+    }
+
     public WalletViewModel GetWallet()
     {
         lock (_gate)
@@ -136,15 +184,24 @@ public sealed class InMemoryBizzyStore
         }
     }
 
-    public TransactionsViewModel GetTransactions()
+    public TransactionsViewModel GetTransactions(string? query)
     {
         lock (_gate)
         {
+            var q = query?.Trim();
+            IEnumerable<SalesTransactionRow> rows = _salesTransactions;
+            if (!string.IsNullOrWhiteSpace(q))
+            {
+                rows = rows.Where(r =>
+                    r.UserName.Contains(q, StringComparison.OrdinalIgnoreCase) ||
+                    r.ProductSummary.Contains(q, StringComparison.OrdinalIgnoreCase));
+            }
+
             return new TransactionsViewModel
             {
-                WalletBalance = _walletBalance,
-                Transactions = _transactions
-                    .OrderByDescending(t => t.CreatedAt)
+                Query = q,
+                Rows = rows
+                    .OrderByDescending(r => r.Date)
                     .ToArray(),
             };
         }

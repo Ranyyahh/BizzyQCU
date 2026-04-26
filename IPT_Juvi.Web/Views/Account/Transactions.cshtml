@@ -1,37 +1,32 @@
 @model IPT_Juvi.Web.Models.ViewModels.TransactionsViewModel
 @{
-    ViewData["Title"] = "Transaction History";
-    ViewData["Nav"] = "Dashboard";
+    ViewData["Title"] = "Transactions";
+    ViewData["Nav"] = "Transactions";
+    ViewData["TxQuery"] = Model.Query ?? "";
 }
 
-<div class="bizzy-shell">
-    <div class="bizzy-card">
-        <div class="bizzy-panel-title dark">Transaction History</div>
-        <div class="bizzy-panel-hr"></div>
+<div class="bizzy-shell bizzy-tx">
+    <div class="bizzy-card bizzy-tx-card">
+        <div class="bizzy-tx-tab">Transactions</div>
 
-        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px;">
-            <div style="font-weight:900;">Wallet Balance: ₱ @Model.WalletBalance.ToString("N2")</div>
-            <a class="bizzy-btn bizzy-btn-primary" asp-controller="Account" asp-action="AddFunds">+ Add Funds</a>
-        </div>
-
-        <div class="bizzy-panel" style="overflow:auto;">
-            <table class="table table-sm mb-0" style="font-size:12px;">
+        <div class="bizzy-tx-table-wrap">
+            <table class="bizzy-tx-table" aria-label="Transactions">
                 <thead>
                     <tr>
-                        <th style="min-width:150px;">Date</th>
-                        <th>Type</th>
-                        <th>Description</th>
-                        <th class="text-end">Amount</th>
+                        <th>User</th>
+                        <th>Product</th>
+                        <th class="t-date">Date</th>
+                        <th class="t-total">Total</th>
                     </tr>
                 </thead>
                 <tbody>
-                @foreach (var t in Model.Transactions)
+                @foreach (var r in Model.Rows)
                 {
                     <tr>
-                        <td>@t.CreatedAt.ToLocalTime().ToString("MMM dd, yyyy HH:mm")</td>
-                        <td>@t.Type</td>
-                        <td>@t.Description</td>
-                        <td class="text-end">@((t.Amount == 0 ? "-" : ("₱ " + t.Amount.ToString("N2"))))</td>
+                        <td class="t-user">@r.UserName</td>
+                        <td class="t-prod">@r.ProductSummary</td>
+                        <td class="t-date">@r.Date.ToString("MM/dd/yyyy")</td>
+                        <td class="t-total">&#8369; @r.Total.ToString("N2")</td>
                     </tr>
                 }
                 </tbody>
@@ -39,4 +34,3 @@
         </div>
     </div>
 </div>
-

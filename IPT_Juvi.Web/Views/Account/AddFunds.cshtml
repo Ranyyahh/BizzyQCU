@@ -12,7 +12,7 @@
         <form asp-controller="Account" asp-action="AddFunds" method="post" class="bizzy-panel">
             @Html.AntiForgeryToken()
             <div class="bizzy-form-row" style="grid-template-columns: 120px 220px;">
-                <label asp-for="Amount">Amount (₱)</label>
+                <label asp-for="Amount">Amount (&#8369;)</label>
                 <input class="bizzy-input" asp-for="Amount" />
             </div>
             <div class="bizzy-form-actions">

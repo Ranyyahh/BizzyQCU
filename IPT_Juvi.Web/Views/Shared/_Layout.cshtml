@@ -15,7 +15,15 @@
 
     <header class="bizzy-topbar">
         <div class="bizzy-topbar-inner">
-            @if (string.Equals(nav, "Site", StringComparison.OrdinalIgnoreCase))
+            @if (string.Equals(nav, "Transactions", StringComparison.OrdinalIgnoreCase))
+            {
+                <partial name="_NavTransactions" />
+            }
+            else if (string.Equals(nav, "SiteExact", StringComparison.OrdinalIgnoreCase))
+            {
+                <partial name="_NavSiteExact" />
+            }
+            else if (string.Equals(nav, "Site", StringComparison.OrdinalIgnoreCase))
             {
                 <partial name="_NavSite" />
             }

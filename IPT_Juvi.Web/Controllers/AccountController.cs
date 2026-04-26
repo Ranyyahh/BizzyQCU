@@ -29,7 +29,7 @@ public sealed class AccountController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Settings(ProfileSettingsViewModel model, IFormFile? photo, string? submit)
+    public async Task<IActionResult> Settings(ProfileSettingsViewModel model, IFormFile? photo, IFormFile? paymentQr, string? submit)
     {
         if (string.Equals(submit, "photo", StringComparison.OrdinalIgnoreCase) && photo is not null && photo.Length > 0)
         {
@@ -53,6 +53,31 @@ public sealed class AccountController : Controller
 
             _store.UpdatePhotoPath($"/uploads/{fileName}");
             TempData["ToastSuccess"] = "Photo updated.";
+            return RedirectToAction(nameof(Settings));
+        }
+
+        if (string.Equals(submit, "qr", StringComparison.OrdinalIgnoreCase) && paymentQr is not null && paymentQr.Length > 0)
+        {
+            var ext = Path.GetExtension(paymentQr.FileName).ToLowerInvariant();
+            if (ext is not (".png" or ".jpg" or ".jpeg" or ".gif" or ".webp"))
+            {
+                TempData["ToastError"] = "Unsupported file type.";
+                return RedirectToAction(nameof(Settings));
+            }
+
+            var uploadsDir = Path.Combine(_env.WebRootPath, "uploads");
+            Directory.CreateDirectory(uploadsDir);
+
+            var fileName = $"payment-qr-{Guid.NewGuid():N}{ext}";
+            var filePath = Path.Combine(uploadsDir, fileName);
+
+            await using (var stream = System.IO.File.Create(filePath))
+            {
+                await paymentQr.CopyToAsync(stream);
+            }
+
+            _store.UpdatePaymentQrPath($"/uploads/{fileName}");
+            TempData["ToastSuccess"] = "GCash QR updated.";
             return RedirectToAction(nameof(Settings));
         }
 
@@ -87,13 +112,14 @@ public sealed class AccountController : Controller
         }
 
         _store.AddFunds(model.Amount);
-        return RedirectToAction(nameof(Transactions));
+        TempData["ToastSuccess"] = "Funds added.";
+        return RedirectToAction(nameof(Wallet));
     }
 
     [HttpGet]
-    public IActionResult Transactions()
+    public IActionResult Transactions(string? q)
     {
-        return View(_store.GetTransactions());
+        return View(_store.GetTransactions(q));
     }
 
     [HttpGet]

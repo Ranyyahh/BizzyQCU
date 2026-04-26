@@ -35,4 +35,14 @@
       if (uploadForm) uploadForm.submit();
     });
   }
+
+  const uploadQrBtn = document.querySelector("[data-bizzy-upload-qr]");
+  const qrInput = document.querySelector("[data-bizzy-qr-input]");
+  if (uploadQrBtn && qrInput) {
+    uploadQrBtn.addEventListener("click", () => qrInput.click());
+    qrInput.addEventListener("change", () => {
+      if (submitMode) submitMode.value = "qr";
+      if (uploadForm) uploadForm.submit();
+    });
+  }
 })();

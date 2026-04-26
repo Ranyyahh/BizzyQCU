@@ -26,7 +26,6 @@ C:\Users\juvic\source\repos\IPT_Juvi\IPT_Juvi.Web\obj\Debug\net10.0\compressed\i
 C:\Users\juvic\source\repos\IPT_Juvi\IPT_Juvi.Web\obj\Debug\net10.0\compressed\o1k4p6ildz-{0}-61n19gt1b8-61n19gt1b8.gz
 C:\Users\juvic\source\repos\IPT_Juvi\IPT_Juvi.Web\obj\Debug\net10.0\compressed\8shbnxjf2j-{0}-g4l1kumio6-g4l1kumio6.gz
 C:\Users\juvic\source\repos\IPT_Juvi\IPT_Juvi.Web\obj\Debug\net10.0\compressed\vzjvyeru7t-{0}-utqygqf8u7-utqygqf8u7.gz
-C:\Users\juvic\source\repos\IPT_Juvi\IPT_Juvi.Web\obj\Debug\net10.0\compressed\2xwted1rt1-{0}-5gax28n6m3-5gax28n6m3.gz
 C:\Users\juvic\source\repos\IPT_Juvi\IPT_Juvi.Web\obj\Debug\net10.0\compressed\y37o0o4pkh-{0}-xtxxf3hu2r-xtxxf3hu2r.gz
 C:\Users\juvic\source\repos\IPT_Juvi\IPT_Juvi.Web\obj\Debug\net10.0\compressed\q5dcthgqtv-{0}-bqjiyaj88i-bqjiyaj88i.gz
 C:\Users\juvic\source\repos\IPT_Juvi\IPT_Juvi.Web\obj\Debug\net10.0\compressed\84gtvis1l0-{0}-c2jlpeoesf-c2jlpeoesf.gz
@@ -75,8 +74,6 @@ C:\Users\juvic\source\repos\IPT_Juvi\IPT_Juvi.Web\obj\Debug\net10.0\compressed\4
 C:\Users\juvic\source\repos\IPT_Juvi\IPT_Juvi.Web\obj\Debug\net10.0\compressed\rmzlwgpqt2-{0}-47otxtyo56-47otxtyo56.gz
 C:\Users\juvic\source\repos\IPT_Juvi\IPT_Juvi.Web\obj\Debug\net10.0\compressed\8lvisklxau-{0}-4v8eqarkd7-4v8eqarkd7.gz
 C:\Users\juvic\source\repos\IPT_Juvi\IPT_Juvi.Web\obj\Debug\net10.0\compressed\vbztvzmw7i-{0}-356vix0kms-356vix0kms.gz
-C:\Users\juvic\source\repos\IPT_Juvi\IPT_Juvi.Web\obj\Debug\net10.0\compressed\kb0pvwf9dd-{0}-83jwlth58m-83jwlth58m.gz
-C:\Users\juvic\source\repos\IPT_Juvi\IPT_Juvi.Web\obj\Debug\net10.0\compressed\4co5i4ujgt-{0}-mrlpezrjn3-mrlpezrjn3.gz
 C:\Users\juvic\source\repos\IPT_Juvi\IPT_Juvi.Web\obj\Debug\net10.0\compressed\ld3qhkbws8-{0}-lzl9nlhx6b-lzl9nlhx6b.gz
 C:\Users\juvic\source\repos\IPT_Juvi\IPT_Juvi.Web\obj\Debug\net10.0\compressed\i3qf054px4-{0}-ag7o75518u-ag7o75518u.gz
 C:\Users\juvic\source\repos\IPT_Juvi\IPT_Juvi.Web\obj\Debug\net10.0\compressed\hy1h40n3kw-{0}-x0q3zqp4vz-x0q3zqp4vz.gz
@@ -99,4 +96,8 @@ C:\Users\juvic\source\repos\IPT_Juvi\IPT_Juvi.Web\obj\Debug\net10.0\refint\IPT_J
 C:\Users\juvic\source\repos\IPT_Juvi\IPT_Juvi.Web\obj\Debug\net10.0\IPT_Juvi.Web.pdb
 C:\Users\juvic\source\repos\IPT_Juvi\IPT_Juvi.Web\obj\Debug\net10.0\IPT_Juvi.Web.genruntimeconfig.cache
 C:\Users\juvic\source\repos\IPT_Juvi\IPT_Juvi.Web\obj\Debug\net10.0\ref\IPT_Juvi.Web.dll
-C:\Users\juvic\source\repos\IPT_Juvi\IPT_Juvi.Web\obj\Debug\net10.0\compressed\vq5lvonwm2-{0}-m8imw29j84-m8imw29j84.gz
+C:\Users\juvic\source\repos\IPT_Juvi\IPT_Juvi.Web\obj\Debug\net10.0\compressed\2xwted1rt1-{0}-hkd8y6w5tx-hkd8y6w5tx.gz
+C:\Users\juvic\source\repos\IPT_Juvi\IPT_Juvi.Web\obj\Debug\net10.0\compressed\4co5i4ujgt-{0}-z02dopq085-z02dopq085.gz
+C:\Users\juvic\source\repos\IPT_Juvi\IPT_Juvi.Web\obj\Debug\net10.0\compressed\kb0pvwf9dd-{0}-34d9xugbii-34d9xugbii.gz
+C:\Users\juvic\source\repos\IPT_Juvi\IPT_Juvi.Web\obj\Debug\net10.0\compressed\5uzx2kyeh1-{0}-4gig1jnkp0-4gig1jnkp0.gz
+C:\Users\juvic\source\repos\IPT_Juvi\IPT_Juvi.Web\obj\Debug\net10.0\compressed\vq5lvonwm2-{0}-dl11s5j7cz-dl11s5j7cz.gz

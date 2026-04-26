@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("IPT_Juvi.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cce0898c8174c2059c0baf05f8aed022c8ec7fb5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f287a8c8c9d03f0feb89ed8336169703c55efadb")]
 [assembly: System.Reflection.AssemblyProductAttribute("IPT_Juvi.Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("IPT_Juvi.Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

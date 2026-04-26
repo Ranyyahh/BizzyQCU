@@ -29,9 +29,9 @@ html, body {
 
 .bizzy-topbar-inner {
   height: 100%;
-  max-width: 1200px;
+  max-width: none;
   margin: 0 auto;
-  padding: 0 18px;
+  padding: 0 26px;
   display: flex;
   align-items: center;
 }
@@ -60,6 +60,15 @@ html, body {
   display: block;
   width: auto;
   max-width: 240px;
+}
+
+.bizzy-nav-site .bizzy-logo img {
+  height: 40px;
+  max-width: 260px;
+}
+
+.bizzy-nav-dashboard .bizzy-logo img {
+  height: 44px;
 }
 
 .bizzy-nav {
@@ -110,13 +119,39 @@ html, body {
   height: 30px;
 }
 
-.bizzy-nav-site-links {
-  margin-left: 18px;
+.bizzy-nav-site-left {
   display: flex;
   align-items: center;
-  gap: 22px;
-  padding-left: 18px;
-  border-left: 2px solid #e2c95f;
+  gap: 18px;
+}
+
+.bizzy-site-divider {
+  width: 2px;
+  height: 34px;
+  background: #e2c95f;
+  border-radius: 2px;
+}
+
+.bizzy-nav-site-links {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+  gap: 28px;
+}
+
+.bizzy-nav-site-exact .bizzy-nav-site-links {
+  flex: 1;
+  justify-content: center;
+  gap: 34px;
+}
+
+.bizzy-nav-site-exact .bizzy-site-divider {
+  margin-left: 10px;
+}
+
+.bizzy-nav-site-exact .bizzy-nav-site-right {
+  margin-left: auto;
 }
 
 .bizzy-site-link {
@@ -124,13 +159,13 @@ html, body {
   text-decoration: none;
   font-weight: 700;
   font-size: 12px;
+  letter-spacing: .2px;
 }
 
-.bizzy-nav-site-icons {
-  margin-left: auto;
+.bizzy-nav-site-right {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 18px;
 }
 
 .bizzy-nav-site-mobile {
@@ -138,8 +173,8 @@ html, body {
 }
 
 .bizzy-icon-btn {
-  width: 34px;
-  height: 34px;
+  width: 38px;
+  height: 38px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -147,7 +182,7 @@ html, body {
   text-decoration: none;
 }
 
-.bizzy-icon-btn svg { width: 26px; height: 26px; }
+.bizzy-icon-btn svg { width: 28px; height: 28px; }
 
 .bizzy-hamburger {
   margin-left: auto;
@@ -182,6 +217,11 @@ html, body {
 }
 .bizzy-back svg { width: 18px; height: 18px; }
 
+.bizzy-back-inline {
+  position: static;
+  box-shadow: none;
+}
+
 .bizzy-title-row {
   display: flex;
   align-items: center;
@@ -202,6 +242,21 @@ html, body {
   grid-template-columns: 130px 1fr 120px;
   gap: 14px;
   align-items: center;
+}
+
+.bizzy-hero-actions {
+  display: grid;
+  justify-items: end;
+  gap: 10px;
+}
+
+.bizzy-hero-qr img {
+  width: 78px;
+  height: 78px;
+  object-fit: contain;
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: 10px;
+  background: #fff;
 }
 
 .bizzy-avatar {
@@ -430,6 +485,40 @@ html, body {
   margin: 6px 0 10px;
 }
 
+.bizzy-settings-qr {
+  margin-top: 4px;
+}
+
+.bizzy-settings-qr-row label {
+  align-self: start;
+  margin-top: 6px;
+}
+
+.bizzy-settings-qr-col {
+  display: grid;
+  justify-items: start;
+  gap: 8px;
+}
+
+.bizzy-settings-qr-btn {
+  padding: 6px 12px;
+}
+
+.bizzy-settings-qr-preview img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.bizzy-settings-qr-note {
+  font-weight: 900;
+  font-size: 12px;
+  color: rgba(0,0,0,.55);
+}
+
 .bizzy-settings-validation {
   justify-content: flex-start;
   margin-top: 8px;
@@ -444,6 +533,111 @@ html, body {
   display: flex;
   justify-content: flex-end;
   gap: 12px;
+}
+
+.bizzy-nav-tx {
+  gap: 14px;
+}
+
+.bizzy-nav-tx .bizzy-logo img {
+  height: 34px;
+  max-width: 220px;
+}
+
+.bizzy-tx-search {
+  margin-left: auto;
+  flex: 1;
+  max-width: 620px;
+  height: 36px;
+  background: #fff;
+  border-radius: 14px;
+  border: 2px solid rgba(0,0,0,.12);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.bizzy-tx-search input {
+  border: 0;
+  outline: none;
+  padding: 0 12px;
+  width: 100%;
+  font-weight: 800;
+  font-size: 12px;
+}
+
+.bizzy-tx-search button {
+  border: 0;
+  background: transparent;
+  padding: 0 12px;
+  color: rgba(0,0,0,.7);
+  height: 100%;
+}
+.bizzy-tx-search svg { width: 18px; height: 18px; }
+
+.bizzy-tx-card {
+  padding: 0;
+  overflow: hidden;
+  background: rgba(230, 230, 230, .55);
+}
+
+.bizzy-tx-tab {
+  width: 160px;
+  background: #0b1ea8;
+  color: #fff;
+  font-weight: 900;
+  padding: 10px 14px;
+  border-radius: 12px 12px 0 0;
+  margin-left: 16px;
+  margin-top: 14px;
+}
+
+.bizzy-tx-table-wrap {
+  padding: 0 16px 16px;
+}
+
+.bizzy-tx-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: rgba(255,255,255,.85);
+  border-radius: 0 12px 12px 12px;
+  overflow: hidden;
+}
+
+.bizzy-tx-table thead th {
+  background: #1420ad;
+  color: #fff;
+  font-weight: 900;
+  font-size: 13px;
+  padding: 10px 12px;
+  border-right: 2px solid rgba(255,255,255,.6);
+}
+.bizzy-tx-table thead th:last-child { border-right: 0; }
+
+.bizzy-tx-table tbody td {
+  padding: 16px 12px;
+  font-weight: 900;
+  font-size: 12px;
+  border-bottom: 2px solid rgba(0,0,0,.15);
+  color: #0b1ea8;
+  vertical-align: top;
+}
+
+.bizzy-tx-table tbody tr:last-child td { border-bottom: 0; }
+.bizzy-tx-table .t-user { color: #0b1ea8; font-size: 14px; }
+.bizzy-tx-table .t-prod { color: #0b1ea8; font-weight: 800; }
+.bizzy-tx-table .t-date { text-align: center; color: #0b1ea8; white-space: nowrap; }
+.bizzy-tx-table .t-total { text-align: right; color: #0b1ea8; white-space: nowrap; }
+
+.bizzy-tx-table th.t-date,
+.bizzy-tx-table td.t-date {
+  width: 110px;
+}
+
+.bizzy-tx-table th.t-total,
+.bizzy-tx-table td.t-total {
+  width: 110px;
 }
 
 .bizzy-toast-wrap {
@@ -489,8 +683,16 @@ html, body {
   .bizzy-grid-2 { grid-template-columns: 1fr; }
   .bizzy-form-grid { grid-template-columns: 1fr; }
   .bizzy-divider { display: none; }
+  .bizzy-nav-site-left { flex: 1; justify-content: center; }
+  .bizzy-site-divider { display: none; }
   .bizzy-nav-site-links { display: none; }
-  .bizzy-nav-site-icons { display: none; }
+  .bizzy-nav-site-right { display: none; }
+
+  .bizzy-nav-site-exact .bizzy-site-divider { display: none; }
+  .bizzy-nav-site-exact .bizzy-nav-site-links { display: none; }
+  .bizzy-nav-site-exact .bizzy-nav-site-right { display: flex; gap: 12px; }
+  .bizzy-nav-site-exact .bizzy-icon-btn { width: 34px; height: 34px; }
+  .bizzy-nav-site-exact .bizzy-icon-btn svg { width: 26px; height: 26px; }
 
   .bizzy-settings-card {
     border: 3px solid #6f2cff;
@@ -528,5 +730,26 @@ html, body {
 
   .bizzy-settings-actions {
     justify-content: space-between;
+  }
+
+  .bizzy-tx-top {
+    gap: 10px;
+  }
+
+  .bizzy-tx-brand img {
+    height: 28px;
+  }
+
+  .bizzy-tx-search {
+    max-width: none;
+    height: 34px;
+  }
+
+  .bizzy-tx-table-wrap {
+    overflow: auto;
+  }
+
+  .bizzy-tx-table {
+    min-width: 640px;
   }
 }

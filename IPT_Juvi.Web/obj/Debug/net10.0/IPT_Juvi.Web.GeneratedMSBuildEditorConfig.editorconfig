@@ -78,6 +78,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9OYXZTaXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/juvic/source/repos/IPT_Juvi/IPT_Juvi.Web/Views/Shared/_NavSiteExact.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9OYXZTaXRlRXhhY3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/juvic/source/repos/IPT_Juvi/IPT_Juvi.Web/Views/Shared/_NavTransactions.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9OYXZUcmFuc2FjdGlvbnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/juvic/source/repos/IPT_Juvi/IPT_Juvi.Web/Views/Shared/_Toasts.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Ub2FzdHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

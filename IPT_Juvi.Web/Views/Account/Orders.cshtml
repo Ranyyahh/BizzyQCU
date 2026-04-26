@@ -1,7 +1,7 @@
 @model IPT_Juvi.Web.Models.ViewModels.OrdersViewModel
 @{
     ViewData["Title"] = "Orders";
-    ViewData["Nav"] = "Dashboard";
+    ViewData["Nav"] = "SiteExact";
 }
 
 <div class="bizzy-shell">
@@ -28,7 +28,7 @@
                         <td>@o.OrderedAt.ToLocalTime().ToString("MMM dd, yyyy")</td>
                         <td>@o.CustomerName</td>
                         <td>@o.Status</td>
-                        <td class="text-end">₱ @o.Total.ToString("N2")</td>
+                        <td class="text-end">&#8369; @o.Total.ToString("N2")</td>
                     </tr>
                 }
                 </tbody>
@@ -36,4 +36,3 @@
         </div>
     </div>
 </div>
-

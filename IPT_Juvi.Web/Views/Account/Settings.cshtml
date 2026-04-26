@@ -1,7 +1,7 @@
 @model IPT_Juvi.Web.Models.ViewModels.ProfileSettingsViewModel
 @{
     ViewData["Title"] = "User Profile";
-    ViewData["Nav"] = "Site";
+    ViewData["Nav"] = "SiteExact";
 }
 
 <div class="bizzy-shell bizzy-settings">
@@ -18,6 +18,7 @@
             <input type="hidden" name="submit" value="save" data-bizzy-submit-mode />
 
             <input type="file" name="photo" accept="image/*" style="display:none" data-bizzy-photo-input />
+            <input type="file" name="paymentQr" accept="image/*" style="display:none" data-bizzy-qr-input />
 
             <div class="bizzy-settings-top">
                 <div class="bizzy-avatar bizzy-settings-avatar">
@@ -45,7 +46,7 @@
                         <input class="bizzy-input" asp-for="EnterpriseType" readonly data-bizzy-editable />
                     </div>
                     <div class="bizzy-form-row">
-                        <label asp-for="Contact">Contact</label>
+                        <label asp-for="Contact">GCash No.</label>
                         <input class="bizzy-input" asp-for="Contact" readonly data-bizzy-editable />
                     </div>
                     <div class="bizzy-form-row">
@@ -77,9 +78,24 @@
                         <input class="bizzy-input" asp-for="Section" readonly data-bizzy-editable />
                     </div>
                     <div class="bizzy-form-row">
-                        <label asp-for="ManagerContact">Contact</label>
+                        <label asp-for="ManagerContact">GCash No.</label>
                         <input class="bizzy-input" asp-for="ManagerContact" readonly data-bizzy-editable />
                     </div>
+
+                    <div class="bizzy-form-row bizzy-settings-qr-row">
+                        <label>GCash QR</label>
+                        <div class="bizzy-settings-qr-col">
+                            <button class="bizzy-btn bizzy-btn-primary bizzy-settings-qr-btn" type="button" data-bizzy-upload-qr>Upload QR</button>
+                            <div class="bizzy-settings-qr-preview">
+                                <img src="@(string.IsNullOrWhiteSpace(Model.PaymentQrPath) ? "/img/qr-placeholder.svg" : Model.PaymentQrPath)" alt="GCash QR" />
+                            </div>
+                            @if (string.IsNullOrWhiteSpace(Model.PaymentQrPath))
+                            {
+                                <div class="bizzy-settings-qr-note">No QR uploaded</div>
+                            }
+                        </div>
+                    </div>
+
                     <div class="bizzy-form-row bizzy-settings-row-email">
                         <label asp-for="ManagerEmail">Email</label>
                         <input class="bizzy-input" asp-for="ManagerEmail" readonly data-bizzy-editable />
