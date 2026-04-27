@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BizzyQCU – User Approval</title>
+    <link rel="stylesheet" href="AdminUsers.css" />
+    <link rel="stylesheet" href="Fonts.css" />
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="nav-left">
+            <a href="LandingAdmin.html" class="back-btn" title="Back">&#8592;</a>
+            <div class="nav-logo">
+                <div class="logo-icon"></div>
+            </div>
+        </div>
+
+        <div class="search-wrap">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search Name" autocomplete="off" />
+                <span class="search-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8" />
+                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                    </svg>
+                </span>
+            </div>
+        </div>
+
+        <div style="width: 120px;"></div>
+    </header>
+
+    <div class="page-wrapper">
+        <div class="table-card">
+
+            <div class="tabs">
+                <button class="tab active" id="tabUsers">User Approval</button>
+                <button class="tab" id="tabEnterprises">Enterprise Approval</button>
+            </div>
+
+            <div class="tab-panel" id="panelUsers">
+                <table class="approval-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Section</th>
+                            <th>Student No.</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="usersTableBody">
+                        <!--
+                            TODO (DB): replace example rows with dynamic rows
+                            rendered by AdminUsers.js renderUserRow(user).
+                            Each user record needs:
+                              id, name, email, section, studentNo, status
+                            status values: 'approved' | 'pending' | 'denied'
+                        -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="tab-panel hidden" id="panelEnterprises">
+                <table class="approval-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Business Type</th>
+                            <th>Enterprise No.</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="enterprisesTableBody">
+                        <!--
+                            TODO (DB): replace example rows with dynamic rows
+                            rendered by AdminUsers.js renderEnterpriseRow(enterprise).
+                            Each enterprise record needs:
+                              id, name, email, businessType, enterpriseNo, status
+                            status values: 'approved' | 'pending' | 'denied'
+                        -->
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="AdminUsers.js"></script>
+</body>
+</html>

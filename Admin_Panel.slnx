@@ -1,13 +1,22 @@
 <Solution>
   <Folder Name="/Solution Items/">
+    <File Path="AdminEditEntrep.html" />
+    <File Path="AdminLandingEntrep.html" />
+    <File Path="AdminUsers.html" />
     <File Path="LandingAdmin.html" />
   </Folder>
   <Folder Name="/Solution Items/Css/">
+    <File Path="AdminEditEntrep.css" />
+    <File Path="AdminLandingEntrep.css" />
+    <File Path="AdminUsers.css" />
     <File Path="Fonts.css" />
     <File Path="LandingAdmin.css" />
   </Folder>
   <Folder Name="/Solution Items/Images/" />
   <Folder Name="/Solution Items/Scripts/">
+    <File Path="AdminEditEntrep.js" />
+    <File Path="AdminLandingEntrep.js" />
+    <File Path="AdminUsers.js" />
     <File Path="LandingAdmin.js" />
   </Folder>
 </Solution>
