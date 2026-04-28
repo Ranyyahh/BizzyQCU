@@ -1,0 +1,448 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', 'Poppins', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f5f5f5;
+}
+
+/* ===== REMOVE SCROLL ===== */
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
+/* NAVBAR */
+.main-navbar {
+    background: #ffffff;
+    padding: 8px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.nav-container {
+    width: 100%;
+    padding-left: 30px;
+    padding-right: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 30px;
+}
+
+/* LEFT SIDE - Logo */
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo {
+    height: 90px;
+    width: auto;
+}
+
+.nav-divider {
+    width: 3px;
+    height: 35px;
+    background: #f5a623;
+    border-radius: 2px;
+}
+
+/* NAV LINKS */
+.nav-links {
+    display: flex;
+    gap: 35px;
+}
+
+    .nav-links a {
+        text-decoration: none;
+        color: #1a2a6f;
+        font-weight: 700;
+        font-size: 15px;
+        letter-spacing: 0.5px;
+        transition: color 0.2s ease;
+    }
+
+        .nav-links a:hover {
+            color: #f5a623;
+        }
+
+/* BACKGROUND */
+.auth-bg {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
+    box-sizing: border-box;
+    background: linear-gradient(145deg, rgba(255, 200, 70, 0.88), rgba(25, 60, 180, 0.88)), url('/images/background.png') no-repeat center center/cover;
+}
+
+/* CARD BASE */
+.auth-card {
+    max-width: 92%;
+    background: white;
+    border-radius: 28px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+    /* LOGIN CARD */
+    .auth-card.login-card {
+        width: 380px;
+        padding: 35px 32px;
+    }
+
+    /* REGISTER CUSTOMER CARD */
+    .auth-card.register-customer {
+        width: 370px;
+        padding: 28px 28px;
+    }
+
+    /* REGISTER ENTERPRISE CARD */
+    .auth-card.register-enterprise {
+        width: 390px;
+        padding: 35px 32px;
+    }
+
+    /* TITLE */
+    .auth-card h2 {
+        color: #1a2a6f;
+        font-size: 26px;
+        margin-bottom: 18px;
+        font-weight: 700;
+    }
+
+    /* INPUTS */
+    .auth-card input:not([type="file"]) {
+        width: 100%;
+        padding: 11px 15px;
+        margin: 7px 0;
+        border-radius: 50px;
+        border: 1.5px solid #e8ecef;
+        background: #fefefe;
+        box-sizing: border-box;
+        font-size: 13.5px;
+    }
+
+        .auth-card input:not([type="file"]):focus {
+            outline: none;
+            border-color: #f5a623;
+            box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.15);
+        }
+
+/* FILE UPLOAD */
+.upload-link-wrapper {
+    margin: 8px 0;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.upload-text-link {
+    color: #1a2a6f;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+    .upload-text-link:hover {
+        color: #f5a623;
+        text-decoration: underline;
+    }
+
+.file-name-display {
+    font-size: 11px;
+    color: #7a8aa5;
+}
+
+/* BUTTON */
+.auth-btn {
+    width: 100%;
+    padding: 11px;
+    background: #f5a623;
+    border: none;
+    border-radius: 40px;
+    font-weight: 800;
+    font-size: 14px;
+    color: #1a2a6f;
+    margin-top: 14px;
+    cursor: pointer;
+}
+
+    .auth-btn:hover {
+        background: #e09612;
+    }
+
+/* LINKS */
+.auth-links {
+    margin-top: 15px;
+    font-size: 12.5px;
+    line-height: 1.6;
+}
+
+    .auth-links a {
+        color: #1a2a6f;
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+        .auth-links a:hover {
+            text-decoration: underline;
+            color: #f5a623;
+        }
+
+/* ===== DESKTOP VIEW ===== */
+@media (min-width: 769px) {
+    .mobile-menu,
+    .hamburger,
+    .back-btn,
+    .nav-center {
+        display: none !important;
+    }
+
+    .nav-left {
+        display: flex !important;
+    }
+
+    .nav-links {
+        display: flex !important;
+    }
+}
+
+/* ===== MOBILE VIEW ===== */
+@media (max-width: 768px) {
+    /* Fix sa scroll */
+    html, body {
+        overflow: auto !important;
+        height: auto !important;
+    }
+
+    /* Itago ang desktop nav */
+    .nav-links {
+        display: none !important;
+    }
+
+    .nav-left {
+        display: none !important;
+    }
+
+    /* Ipakita ang mobile elements */
+    .back-btn {
+        display: block !important;
+    }
+
+    .hamburger {
+        display: block !important;
+    }
+
+    .nav-center {
+        display: block !important;
+    }
+
+    /* Ayusin ang nav-container */
+    .nav-container {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 0 15px !important;
+        position: relative !important;
+        gap: 0 !important;
+    }
+
+    /* Back button - nasa kaliwa */
+    .back-btn {
+        background: #dbe3ff !important;
+        border: none !important;
+        border-radius: 12px !important;
+        padding: 8px 14px !important;
+        font-size: 18px !important;
+        cursor: pointer !important;
+        color: #1a2a6f !important;
+        order: 1 !important;
+    }
+
+    /* Center logo */
+    .nav-center {
+        position: absolute !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        order: 2 !important;
+    }
+
+        .nav-center .logo {
+            height: 55px !important;
+            width: auto !important;
+        }
+
+    /* Hamburger - nasa kanan */
+    .hamburger {
+        display: block !important;
+        font-size: 30px !important;
+        cursor: pointer !important;
+        color: #1a2a6f !important;
+        background: none !important;
+        border: none !important;
+        padding: 8px 10px !important;
+        order: 3 !important;
+        margin-right: 5px !important;
+    }
+
+    /* Mobile menu - SLIDE FROM RIGHT */
+    .mobile-menu {
+        position: fixed !important;
+        top: 0 !important;
+        right: 0 !important;
+        width: 280px !important;
+        height: 100vh !important;
+        background: linear-gradient(180deg, #1a2a6f, #2a3a8f) !important;
+        z-index: 9999 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        padding-top: 70px !important;
+        transform: translateX(100%) !important;
+        transition: transform 0.3s ease-in-out !important;
+        box-shadow: -5px 0 20px rgba(0,0,0,0.3) !important;
+    }
+
+        .mobile-menu.active {
+            transform: translateX(0) !important;
+        }
+
+        /* Close button */
+        .mobile-menu .close-menu {
+            position: absolute !important;
+            top: 15px !important;
+            right: 20px !important;
+            font-size: 32px !important;
+            cursor: pointer !important;
+            color: white !important;
+            background: none !important;
+            border: none !important;
+            padding: 5px 10px !important;
+        }
+
+            .mobile-menu .close-menu:hover {
+                color: #f5a623 !important;
+            }
+
+        /* Mobile menu links */
+        .mobile-menu a {
+            display: block !important;
+            color: white !important;
+            text-decoration: none !important;
+            font-size: 18px !important;
+            padding: 14px 20px !important;
+            margin: 5px 0 !important;
+            text-align: center !important;
+            font-weight: 600 !important;
+            width: 100% !important;
+            border-bottom: 1px solid rgba(255,255,255,0.15) !important;
+        }
+
+            .mobile-menu a:hover {
+                color: #f5a623 !important;
+                background: rgba(255,255,255,0.1) !important;
+            }
+
+        .mobile-menu h2 {
+            color: #f5a623 !important;
+            margin-bottom: 30px !important;
+            font-size: 24px !important;
+            text-align: center !important;
+        }
+
+    /* Fix sa background */
+    .auth-bg {
+        height: auto !important;
+        min-height: 100vh !important;
+        padding-top: 100px !important;
+        padding-bottom: 40px !important;
+        overflow-y: auto !important;
+    }
+
+    /* CARD SIZE - sa mobile */
+    .auth-card.login-card,
+    .auth-card.register-customer,
+    .auth-card.register-enterprise {
+        width: 88% !important;
+        max-width: 320px !important;
+        padding: 22px 18px !important;
+        margin: 0 auto !important;
+    }
+
+    .auth-card h2 {
+        font-size: 22px !important;
+        margin-bottom: 14px !important;
+    }
+
+    .auth-card input:not([type="file"]) {
+        padding: 9px 12px !important;
+        font-size: 12px !important;
+        margin: 5px 0 !important;
+    }
+
+    .auth-btn {
+        padding: 9px !important;
+        font-size: 13px !important;
+        margin-top: 12px !important;
+    }
+
+    .auth-links {
+        font-size: 11px !important;
+        margin-top: 12px !important;
+    }
+
+    .upload-text-link {
+        font-size: 11px !important;
+    }
+
+    .file-name-display {
+        font-size: 9px !important;
+    }
+}
+
+/* ===== SOBRANG LIIT NA SCREEN ===== */
+@media (max-width: 480px) {
+    .auth-card.login-card,
+    .auth-card.register-customer,
+    .auth-card.register-enterprise {
+        width: 90% !important;
+        max-width: 290px !important;
+        padding: 18px 15px !important;
+    }
+
+    .auth-card h2 {
+        font-size: 20px !important;
+    }
+
+    .nav-center .logo {
+        height: 45px !important;
+    }
+
+    .hamburger {
+        font-size: 28px !important;
+        padding: 5px 8px !important;
+    }
+
+    .back-btn {
+        padding: 6px 12px !important;
+        font-size: 16px !important;
+    }
+
+    .mobile-menu {
+        width: 260px !important;
+    }
+
+        .mobile-menu a {
+            font-size: 16px !important;
+            padding: 12px 16px !important;
+        }
+}
