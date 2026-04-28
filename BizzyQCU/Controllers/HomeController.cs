@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,23 +16,15 @@ namespace BizzyQCU.Controllers
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
+
             return View();
         }
 
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
-            return View();
-        }
 
-        public ActionResult Tracking()
-        {
             return View();
         }
-
-        public ActionResult History()
-        {
-            return View();
-        }
-    } // This one closes the HomeController class
-} // This one closes the Namespace
+    }
+}
