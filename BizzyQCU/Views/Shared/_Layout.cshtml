@@ -6,29 +6,431 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        :root {
+            --primary-yellow: #ffde42;
+            --accent-sky: #53cbf3;
+            --accent-royal: #5478ff;
+            --deep-navy: #111fa2;
+            --bg-soft: #f4f7fe;
+            --white: #ffffff;
+            --text-muted: #64748b;
+            --success-green: #2d8a3e;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Inter", -apple-system, sans-serif;
+            background: linear-gradient(to bottom, var(--primary-yellow), var(--deep-navy)) no-repeat fixed;
+            color: var(--deep-navy);
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+        }
+
+        /* --- HEADER --- */
+        .glass-header {
+            background: var(--white);
+            padding: 10px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 4px solid var(--primary-yellow);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 70px;
+            gap: 15px;
+        }
+
+        .main-logo {
+            height: 100px;
+            display: block;
+            margin: 0;
+            flex-shrink: 0;
+        }
+
+        .back-btn {
+            background: #c2d1ff;
+            border: none;
+            border-radius: 10px;
+            width: 40px;
+            height: 40px;
+            color: var(--accent-royal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            flex-shrink: 0;
+            transition: background 0.2s;
+        }
+
+        .back-btn:hover {
+            background: #a8bbff;
+        }
+
+        /* Navigation Menu */
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 30px;
+            flex: 1;
+            justify-content: flex-end;
+        }
+
+        .nav-menu li a {
+            text-decoration: none;
+            color: var(--deep-navy);
+            font-weight: 600;
+            font-size: 16px;
+            transition: color 0.2s;
+            white-space: nowrap;
+        }
+
+        .nav-menu li a:hover {
+            color: var(--accent-royal);
+        }
+
+        /* Hamburger Menu */
+        .menu-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            padding: 5px;
+            flex-shrink: 0;
+        }
+
+        .hamburger-line {
+            width: 28px;
+            height: 3px;
+            background-color: var(--deep-navy);
+            border-radius: 2px;
+            transition: 0.2s;
+        }
+
+        /* Mobile Menu Overlay */
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            z-index: 999;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .mobile-menu-overlay.active {
+            transform: translateX(0);
+        }
+
+        .mobile-nav-menu {
+            list-style: none;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .mobile-nav-menu li {
+            padding: 12px 0;
+            border-bottom: 1px solid #eef2ff;
+        }
+
+        .mobile-nav-menu li a {
+            text-decoration: none;
+            color: var(--deep-navy);
+            font-weight: 600;
+            font-size: 16px;
+            display: block;
+        }
+
+        /* --- LAYOUT LOGIC --- */
+        .history-layout {
+            display: block;
+            min-height: calc(100vh - 70px);
+        }
+
+        .desktop-details-sidebar {
+            display: none;
+        }
+
+        /* --- PC GRID INSTRUCTIONS --- */
+        @@media (min-width: 1024px) {
+            body {
+                overflow: hidden;
+                height: 100vh;
+            }
+
+            .history-layout {
+                display: grid !important;
+                grid-template-columns: 450px 1fr;
+                height: calc(100vh - 70px);
+            }
+
+            .desktop-details-sidebar {
+                display: block !important;
+                background: var(--white);
+                border-right: 2px solid #e2e8f0;
+                padding: 40px;
+                overflow-y: auto;
+            }
+
+            .history-main-content {
+                overflow-y: auto;
+                padding: 40px 10% !important;
+                background: transparent;
+            }
+
+            .history-main-content::-webkit-scrollbar {
+                width: 8px;
+            }
+
+            .history-main-content::-webkit-scrollbar-thumb {
+                background: rgba(255,255,255,0.2);
+                border-radius: 10px;
+            }
+        }
+
+        /* Desktop navigation visible, mobile menu hidden */
+        @@media (min-width: 769px) {
+            .nav-menu {
+                display: flex;
+            }
+            .menu-btn {
+                display: none;
+            }
+        }
+
+        /* Mobile navigation hidden, hamburger visible */
+       @@media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            .menu-btn {
+                display: flex;
+            }
+            .glass-header {
+                padding: 10px 15px;
+            }
+            .main-logo {
+                height: 60px;
+            }
+        }
+
+        /* --- CARDS & UI --- */
+        .history-main-content {
+            padding: 20px;
+        }
+
+        .history-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 8px solid var(--accent-royal);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .history-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .status-pill {
+            padding: 6px 15px;
+            border-radius: 10px;
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: capitalize;
+        }
+
+        .status-pill.pending {
+            background: #ffec99;
+            color: #856404;
+        }
+
+        .status-pill.preparing {
+            background: #a5d8ff;
+            color: #004085;
+        }
+
+        .status-pill.delivery {
+            background: #d8f5a2;
+            color: #3b5a07;
+        }
+
+        .status-pill.completed {
+            background: #b6ffc0;
+            color: var(--success-green);
+        }
+
+        .action-btn {
+            background: var(--deep-navy);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 12px;
+            font-weight: 800;
+            cursor: pointer;
+        }
+
+        /* --- DETAIL COMPONENTS --- */
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        .detail-label {
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .detail-value {
+            color: var(--deep-navy);
+            font-weight: 700;
+            text-align: right;
+        }
+
+        .order-note-box {
+            background: #fff9db;
+            border-left: 4px solid var(--primary-yellow);
+            padding: 12px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-size: 13px;
+            color: #856404;
+        }
+
+        .courier-card {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: var(--bg-soft);
+            padding: 15px;
+            border-radius: 18px;
+            margin-top: 20px;
+        }
+
+        .chat-icon-btn {
+            background: var(--white);
+            border: 2px solid #eef2ff;
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        /* --- MOBILE MODAL --- */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 2000;
+            display: none;
+            align-items: flex-end;
+            justify-content: center;
+            backdrop-filter: blur(2px);
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-module {
+            background: white;
+            width: 100%;
+            max-width: 500px;
+            border-radius: 25px 25px 0 0;
+            padding: 25px;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: slideUp 0.3s ease-out;
+        }
+
+        @@keyframes slideUp {
+            from {
+                transform: translateY(100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        /* --- ACTION MENU --- */
+        .status-menu {
+            background: white;
+            border: 1px solid #eef2ff;
+            border-radius: 12px;
+            position: absolute;
+            bottom: calc(100% + 10px);
+            right: 0;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            z-index: 100;
+            width: max-content;
+        }
+
+        .menu-opt {
+            padding: 12px 20px;
+            font-size: 13px;
+            font-weight: 800;
+            cursor: pointer;
+            border-bottom: 1px solid #f1f5f9;
+        }
+    </style>
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" title="more options">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Tracking", "Tracking", "Home")</li>
-                    <li>@Html.ActionLink("Manage", "Manage", "Home")</li>
-                </ul>
-            </div>
-        </div>
+    <header class="glass-header">
+        <button class="back-btn" onclick="window.history.back()">
+            <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 3;">
+                <path d="M15 18l-6-6 6-6" />
+            </svg>
+        </button>
+        <img src="~/Content/images/bizzyqcu logo.png" alt="Logo" class="main-logo" />
+
+        <ul class="nav-menu">
+            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+            <li>@Html.ActionLink("About", "About", "Home")</li>
+            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+            <li>@Html.ActionLink("Tracking", "Tracking", "Home")</li>
+            <li>@Html.ActionLink("Manage", "Manage", "Home")</li>
+        </ul>
+
+        <button class="menu-btn" id="hamburgerBtn">
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+        </button>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay" id="mobileMenu">
+        <ul class="mobile-nav-menu">
+            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+            <li>@Html.ActionLink("About", "About", "Home")</li>
+            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+            <li>@Html.ActionLink("Tracking", "Tracking", "Home")</li>
+            <li>@Html.ActionLink("Manage", "Manage", "Home")</li>
+        </ul>
     </div>
+
     <div class="container body-content">
         @RenderBody()
         <hr />
@@ -36,6 +438,25 @@
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>
+
+    <script>
+        // Mobile menu toggle functionality
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        if (hamburgerBtn && mobileMenu) {
+            hamburgerBtn.addEventListener('click', function () {
+                mobileMenu.classList.toggle('active');
+            });
+
+            // Close menu when clicking outside (optional)
+            document.addEventListener('click', function (event) {
+                if (!hamburgerBtn.contains(event.target) && !mobileMenu.contains(event.target)) {
+                    mobileMenu.classList.remove('active');
+                }
+            });
+        }
+    </script>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
