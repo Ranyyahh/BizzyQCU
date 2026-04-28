@@ -63,7 +63,7 @@
             }
         }
 
-        // Close menu kapag nag-swipe pabalik o nag-click sa labas
+        // Close menu kapag nag-click sa labas
         document.addEventListener('click', function (event) {
             var menu = document.getElementById("mobileMenu");
             var hamburger = document.querySelector('.hamburger');
@@ -85,7 +85,7 @@
             }
         });
 
-        // Close menu kapag pinindot ang back button ng browser (optional)
+        // Close menu kapag pinindot ang back button ng browser
         window.addEventListener('popstate', function () {
             var menu = document.getElementById("mobileMenu");
             if (menu.classList.contains("active")) {
