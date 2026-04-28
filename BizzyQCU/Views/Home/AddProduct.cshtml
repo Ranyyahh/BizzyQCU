@@ -1,6 +1,110 @@
-﻿
-@{
-    ViewBag.Title = "Add Product";
-}
+﻿<div class="main-container">
 
+    <div class="image-box">
+        Upload Image
+    </div>
 
+    <div class="form-box">
+
+        <input type="text" placeholder="Name" />
+        <input type="text" placeholder="Price" />
+        <input type="text" placeholder="Category" />
+        <input type="text" placeholder="Preparation time" />
+        <input type="text" placeholder="Delivery" />
+        <input type="text" placeholder="Description" />
+
+        <!-- BUTTON ROW -->
+        <div class="button-row">
+            <button type="submit" class="save">Save</button>
+            <button type="button" class="cancel">Cancel</button>
+        </div>
+
+    </div>
+
+</div>
+
+<style>
+
+    .main-container {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 30px;
+        padding: 30px;
+        border-radius: 25px;
+        background: white;
+        margin: 50px auto;
+        width: 700px;
+    }
+
+    .image-box {
+        background: #f0f0f0;
+        height: 300px;
+        border-radius: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .form-box {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        padding: 12px;
+        box-sizing: border-box;
+    }
+
+    .form-box input {
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+    }
+
+    .button-row {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    /* 🔽 BUTTONS - SMALLER */
+    .button-row button {
+        flex: 1;
+        padding: 6px 8px;   /* smaller */
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 12px;    /* smaller text */
+    }
+
+    .save {
+        background: #ffde42;
+    }
+
+    .cancel {
+        background: #dff0ff;
+    }
+
+    /* 📱 RESPONSIVE */
+    @@media (max-width: 768px) {
+        .main-container {
+            grid-template-columns: 1fr;
+            width: 90%;
+        }
+
+        .image-box {
+            height: 200px;
+        }
+    }
+
+    @@media (max-width: 480px) {
+        .main-container {
+            padding: 15px;
+        }
+
+        .button-row button {
+            font-size: 11px;
+            padding: 5px;
+        }
+    }
+
+</style>
