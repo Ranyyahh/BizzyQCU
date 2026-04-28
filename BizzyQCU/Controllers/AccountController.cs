@@ -1,22 +1,20 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using System.Web;
+using System.Web.Mvc;
 using BizzyQCU.Models;
 
 namespace BizzyQCU.Controllers
 {
     public class AccountController : Controller
     {
-        // GET: LOGIN PAGE (exactly like PPT Page 3 & 7)
-        [HttpGet]
-        public IActionResult Login()
+        // LOGIN
+        public ActionResult Login()
         {
             return View();
         }
 
-        // POST: LOGIN
         [HttpPost]
-        public IActionResult Login(string username, string password)
+        public ActionResult Login(string username, string password)
         {
-            // TEMPORARY: Replace with database later
             if (username == "test" && password == "123")
             {
                 return RedirectToAction("Index", "Home");
@@ -26,50 +24,48 @@ namespace BizzyQCU.Controllers
             return View();
         }
 
-        // GET: CUSTOMER REGISTRATION (exactly like PPT Page 4 & 7)
-        [HttpGet]
-        public IActionResult RegisterCustomer()
+        // REGISTER CUSTOMER
+        public ActionResult RegisterCustomer()
         {
             return View();
         }
 
-        // POST: CUSTOMER REGISTRATION
         [HttpPost]
-        public IActionResult RegisterCustomer(Customer model, IFormFile qcuIdFile)
+        public ActionResult RegisterCustomer(Customer model, HttpPostedFileBase qcuIdFile)
         {
             if (ModelState.IsValid)
             {
-                // TODO: Save to database
-                // TODO: Save uploaded file
+                if (qcuIdFile != null && qcuIdFile.ContentLength > 0)
+                {
+                    string path = Server.MapPath("~/Uploads/" + qcuIdFile.FileName);
+                    qcuIdFile.SaveAs(path);
+                }
+
                 return RedirectToAction("Login");
             }
             return View(model);
         }
 
-        // GET: ENTERPRISE REGISTRATION (exactly like PPT Page 5 & 8)
-        [HttpGet]
-        public IActionResult RegisterEnterprise()
+        // REGISTER ENTERPRISE
+        public ActionResult RegisterEnterprise()
         {
             return View();
         }
 
-        // POST: ENTERPRISE REGISTRATION
         [HttpPost]
-        public IActionResult RegisterEnterprise(Enterprise model, IFormFile documentFile)
+        public ActionResult RegisterEnterprise(Enterprise model, HttpPostedFileBase documentFile)
         {
             if (ModelState.IsValid)
             {
-                // TODO: Save to database
-                // TODO: Save uploaded file
+                if (documentFile != null && documentFile.ContentLength > 0)
+                {
+                    string path = Server.MapPath("~/Uploads/" + documentFile.FileName);
+                    documentFile.SaveAs(path);
+                }
+
                 return RedirectToAction("Login");
             }
             return View(model);
-        }
-
-        [HttpGet]
-        public IActionResult ForgotPassword()
-        {
-            return View();
         }
     }
 }
