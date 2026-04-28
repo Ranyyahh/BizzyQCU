@@ -152,7 +152,7 @@
     <Content Include="Images\1.png" />
     <Content Include="Images\2.png" />
     <Content Include="Images\3.png" />
-    <Content Include="Images\4.png" />
+    <Content Include="Images\cart-icon.png" />
     <Content Include="Images\5.png" />
     <Content Include="Images\Logo.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
