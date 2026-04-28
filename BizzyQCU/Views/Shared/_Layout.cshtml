@@ -1,44 +1,99 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
-    <title>@ViewData["Title"] - BizzyQCU</title>
-
-    <!-- EXACT POPPINS FONT FROM PPT -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
-    <!-- EXACT COLORS FROM PPT -->
-    <style>
-            :root {
-                --primary-orange: #FF6B35;
-                --primary-orange-dark: #E55A2B;
-                --text-dark: #1A1A1A;
-                --text-gray: #666666;
-                --border-color: #E0E0E0;
-                --bg-gray: #F5F5F5;
-                --white: #FFFFFF;
-            }
-
-            * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-            }
-
-            body {
-                font-family: 'Poppins', sans-serif;
-                background: var(--bg-gray);
-                color: var(--text-dark);
-            }
-    </style>
-
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    <title>@ViewBag.Title - BizzyQCU</title>
+    <link href="~/Content/Style.css" rel="stylesheet" />
 </head>
 <body>
+
+    <nav class="main-navbar">
+        <div class="nav-container">
+
+            <!-- DESKTOP NAV -->
+            <div class="nav-left">
+                <img src="~/images/logo.png" alt="BizzyQCU" class="logo" />
+                <div class="nav-divider"></div>
+            </div>
+
+            <div class="nav-links">
+                <a href="#">HOME</a>
+                <a href="#">PRODUCTS</a>
+                <a href="#">ENTERPRISES</a>
+                <a href="#">ABOUT US</a>
+            </div>
+
+            <!-- MOBILE UI -->
+            <button class="back-btn" onclick="history.back()">&#8592;</button>
+
+            <div class="nav-center">
+                <img src="~/images/logo.png" class="logo" />
+            </div>
+
+            <div class="hamburger" onclick="toggleMenu()">☰</div>
+
+        </div>
+    </nav>
+
+    <!-- MOBILE MENU na may close button -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="close-menu" onclick="toggleMenu()">&times;</button>
+        <h2>BizzyQCU</h2>
+        <a href="#" onclick="toggleMenu()">HOME</a>
+        <a href="#" onclick="toggleMenu()">PRODUCTS</a>
+        <a href="#" onclick="toggleMenu()">ENTERPRISES</a>
+        <a href="#" onclick="toggleMenu()">ABOUT US</a>
+        <a href="#" onclick="toggleMenu()">LOG IN</a>
+        <a href="#" onclick="toggleMenu()">REGISTER</a>
+    </div>
+
     @RenderBody()
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("mobileMenu");
+            menu.classList.toggle("active");
+
+            // Para hindi mag-scroll ang body kapag bukas ang menu
+            if (menu.classList.contains("active")) {
+                document.body.style.overflow = "hidden";
+            } else {
+                document.body.style.overflow = "";
+            }
+        }
+
+        // Close menu kapag nag-swipe pabalik o nag-click sa labas
+        document.addEventListener('click', function (event) {
+            var menu = document.getElementById("mobileMenu");
+            var hamburger = document.querySelector('.hamburger');
+
+            if (menu.classList.contains('active') &&
+                !menu.contains(event.target) &&
+                !hamburger.contains(event.target)) {
+                menu.classList.remove('active');
+                document.body.style.overflow = "";
+            }
+        });
+
+        // Close menu kapag nag-resize sa desktop
+        window.addEventListener('resize', function () {
+            if (window.innerWidth > 768) {
+                var menu = document.getElementById("mobileMenu");
+                menu.classList.remove("active");
+                document.body.style.overflow = "";
+            }
+        });
+
+        // Close menu kapag pinindot ang back button ng browser (optional)
+        window.addEventListener('popstate', function () {
+            var menu = document.getElementById("mobileMenu");
+            if (menu.classList.contains("active")) {
+                menu.classList.remove("active");
+                document.body.style.overflow = "";
+            }
+        });
+    </script>
+
 </body>
 </html>
