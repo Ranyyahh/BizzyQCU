@@ -1,0 +1,127 @@
+﻿@{
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>History | Campus Eats</title>
+    <link rel="stylesheet" href="~/Content/trackingstyle.css" />
+</head>
+<body>
+    <header class="glass-header">
+        <div class="header-left">
+            <button class="back-btn" onclick="window.location.href = '@Url.Action("Tracking", "Home")'">
+                <svg viewBox="0 0 24 24"
+                     style="
+              width: 18px;
+              height: 18px;
+              fill: none;
+              stroke: currentColor;
+              stroke-width: 3;
+            ">
+                    <path d="M15 18l-6-6 6-6" />
+                </svg>
+            </button>
+        </div>
+        <div class="header-center">
+            <img src="~/Content/images/bizzyqcu logo.png" alt="BizzyQCU Logo" class="main-logo" />
+        </div>
+        <div class="header-right">
+            <button class="menu-btn">
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+            </button>
+        </div>
+    </header>
+
+    <section class="top-status-bar">
+        <div class="progress-info">
+            <div class="status-icon-main pulse">🍳</div>
+            <div style="flex: 1">
+                <strong style="font-size: 18px; display: block">Preparing Order</strong>
+                <span style="font-size: 12px; color: var(--text-muted)">ETA: 10:55 AM</span>
+            </div>
+            <div class="eta-bubble">
+                <span class="number">8</span>
+                <small style="font-size: 8px; font-weight: 800">MINS</small>
+            </div>
+        </div>
+
+        <div class="progress-track">
+            <div class="progress-fill" style="width: 45%"></div>
+            <div class="check-node done" style="left: 0%"></div>
+            <div class="check-node active" style="left: 45%"></div>
+            <div class="check-node" style="left: 100%"></div>
+        </div>
+        <div class="order-status-id-container">
+            <h2 class="order-id-main">Order #QCU-9821</h2>
+            <span class="live-status-subtext">LIVE STATUS</span>
+        </div>
+    </section>
+
+    <main style="padding: 20px">
+        <div class="history-card">
+            <div class="card-top">
+                <div class="card-titles">
+                    <h4 class="store-name">Campus Eats</h4>
+                    <p class="order-date">Today • 12:30 PM</p>
+                </div>
+                <span class="status-pill completed">Completed</span>
+            </div>
+            <p class="order-items">2x Pork Sisig Rice, 1x Mountain Dew</p>
+            <div class="card-bottom">
+                <span class="order-price">₱145.00</span>
+                <button class="reorder-btn">Reorder</button>
+            </div>
+        </div>
+
+        <div class="history-card">
+            <div class="card-top">
+                <div class="card-titles">
+                    <h4 class="store-name">Brew & Bytes</h4>
+                    <p class="order-date">Yesterday • 9:15 AM</p>
+                </div>
+                <span class="status-pill completed">Completed</span>
+            </div>
+            <p class="order-items">1x Caramel Macchiato, 1x Tuna Sandwich</p>
+            <div class="card-bottom">
+                <span class="order-price">₱160.00</span>
+                <button class="reorder-btn">Reorder</button>
+            </div>
+        </div>
+
+        <div class="history-card cancelled-border">
+            <div class="card-top">
+                <div class="card-titles">
+                    <h4 class="store-name">Dimsum Corner</h4>
+                    <p class="order-date">Mar 16 • 01:45 PM</p>
+                </div>
+                <span class="status-pill cancelled">Cancelled</span>
+            </div>
+            <p class="order-items">4pcs Pork Siomai, 1x Gulaman</p>
+            <div class="card-bottom">
+                <span class="order-price">₱65.00</span>
+            </div>
+        </div>
+
+        <div class="history-card">
+            <div class="card-top">
+                <div class="card-titles">
+                    <h4 class="store-name">Pares Express</h4>
+                    <p class="order-date">Mar 15 • 6:20 PM</p>
+                </div>
+                <span class="status-pill completed">Completed</span>
+            </div>
+            <p class="order-items">1x Beef Pares w/ Rice</p>
+            <div class="card-bottom">
+                <span class="order-price">₱65.00</span>
+                <button class="reorder-btn">Reorder</button>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
