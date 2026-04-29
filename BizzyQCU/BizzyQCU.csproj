@@ -147,6 +147,7 @@
     <Content Include="Content\checkout.css" />
     <Content Include="Content\EnterpriseDashboard.css" />
     <Content Include="Content\layout.css" />
+    <Content Include="Content\MobileNavbar.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -184,7 +185,6 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Scripts\placeholderImages.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
