@@ -298,6 +298,8 @@ body.home-bg {
     flex-direction: column;
     gap: 4px;
     flex: 1;
+    justify-content: center; 
+    align-items: center;
 }
 
 .product-store {
@@ -1526,5 +1528,30 @@ ABOUT PAGE - MEDIA QUERIES (with adjusted text scaling)
     
     
 }
+
+.enterprise-btn {
+    background: #111fa2;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+    /* Hover effect */
+    .enterprise-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Click (active) */
+    .enterprise-btn:active {
+        transform: scale(0.97);
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    }
 
 

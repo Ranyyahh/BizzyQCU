@@ -6,10 +6,10 @@ using System.Web.Mvc;
 
 namespace BizzyQCU.Controllers
 {
-    public class ProductListController : Controller
+    public class EnterpriseListController : Controller
     {
         
-        public ActionResult ProductList()
+        public ActionResult EnterpriseList()
         {
             return View();
         }

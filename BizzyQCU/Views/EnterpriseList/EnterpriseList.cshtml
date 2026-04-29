@@ -1,6 +1,6 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewData["Title"] = "Product List";
+    ViewData["Title"] = "Enterprise List";
     ViewBag.BodyClass = "product-page";
 }
 
@@ -17,7 +17,7 @@
                 @Html.TextBox("searchString", null, new
                 {
                     @class = "search-input",
-                    placeholder = "Search for products",
+                    placeholder = "Search for enterprises   ",
                     id = "productSearch",
                     autocomplete = "off"
                 })
@@ -52,13 +52,6 @@
                 new SelectListItem { Text = "Most Popular",          Value = "high" },
                 new SelectListItem { Text = "Least Popular",         Value = "low" }
             }, new { @class = "filter-dropdown", id = "popularityFilter" })
-
-            @Html.DropDownList("priceRange", new List<SelectListItem>
-        {
-                new SelectListItem { Text = "All Prices",       Value = "" },
-                new SelectListItem { Text = "Low (₱1 - ₱100)", Value = "lowprice" },
-                new SelectListItem { Text = "High (₱100+)",     Value = "highprice" }
-            }, new { @class = "filter-dropdown", id = "priceFilter" })
         </div>
     </div>
 
@@ -70,12 +63,9 @@
                     <img src="~/Content/Images/pl_bento.png" />
                 </div>
                 <div class="product-card-info">
-                    <span class="product-store">Store Name</span>
-                    <span class="product-name">Bento Meal</span>
-                    <span class="product-desc">Rice, viand, and side. Fresh Daily.</span>
+                    <span class="product-store">Enterprise Name</span>
                     <div class="product-footer">
-                        <span class="product-price">&#8369;75</span>
-                        <button class="add-btn">+</button>
+                        <button class="enterprise-btn">View Enterprise</button>
                     </div>
                 </div>
             </div>
@@ -85,12 +75,9 @@
                     <img src="~/Content/Images/spasta.png" />
                 </div>
                 <div class="product-card-info">
-                    <span class="product-store">Store Name</span>
-                    <span class="product-name">Pasta Verde</span>
-                    <span class="product-desc">Organic pasta made by natural ingredients.</span>
+                    <span class="product-store">Enterprise Name</span>
                     <div class="product-footer">
-                        <span class="product-price">&#8369;80</span>
-                        <button class="add-btn">+</button>
+                        <button class="enterprise-btn">View Enterprise</button>
                     </div>
                 </div>
             </div>
@@ -100,12 +87,9 @@
                     <img src="~/Content/Images/pl_cf.jpg" />
                 </div>
                 <div class="product-card-info">
-                    <span class="product-store">Store Name</span>
-                    <span class="product-name">Iced Coffee</span>
-                    <span class="product-desc">Locally brewed cold coffee blend.</span>
+                    <span class="product-store">Enterprise Name</span>
                     <div class="product-footer">
-                        <span class="product-price">&#8369;40</span>
-                        <button class="add-btn">+</button>
+                        <button class="enterprise-btn">View Enterprise</button>
                     </div>
                 </div>
             </div>
@@ -115,12 +99,9 @@
                     <img src="~/Content/Images/pl_slg.jpg" />
                 </div>
                 <div class="product-card-info">
-                    <span class="product-store">Store Name</span>
-                    <span class="product-name">Silog Combo</span>
-                    <span class="product-desc">Sinangag, itlog, and your choice of ulam.</span>
+                    <span class="product-store">Enterprise Name</span>
                     <div class="product-footer">
-                        <span class="product-price">&#8369;85</span>
-                        <button class="add-btn">+</button>
+                        <button class="enterprise-btn">View Enterprise</button>
                     </div>
                 </div>
             </div>
@@ -130,12 +111,9 @@
                     <img src="~/Content/Images/siomai.jpg" />
                 </div>
                 <div class="product-card-info">
-                    <span class="product-store">Store Name</span>
-                    <span class="product-name">Siomai Rice</span>
-                    <span class="product-desc">Steamed siomai served with garlic rice.</span>
+                    <span class="product-store">Enterprise Name</span>
                     <div class="product-footer">
-                        <span class="product-price">&#8369;55</span>
-                        <button class="add-btn">+</button>
+                        <button class="enterprise-btn">View Enterprise</button>
                     </div>
                 </div>
             </div>
@@ -145,12 +123,9 @@
                     <img src="~/Content/Images/toteb.jpeg" />
                 </div>
                 <div class="product-card-info">
-                    <span class="product-store">Store Name</span>
-                    <span class="product-name">QCU Tote Bag</span>
-                    <span class="product-desc">Canvas tote with QCU logo print.</span>
+                    <span class="product-store">Enterprise Name</span>
                     <div class="product-footer">
-                        <span class="product-price">&#8369;150</span>
-                        <button class="add-btn">+</button>
+                        <button class="enterprise-btn">View Enterprise</button>
                     </div>
                 </div>
             </div>
@@ -160,12 +135,9 @@
                     <img src="~/Content/Images/qcuprint.jpg" />
                 </div>
                 <div class="product-card-info">
-                    <span class="product-store">Store Name</span>
-                    <span class="product-name">Thesis Printing</span>
-                    <span class="product-desc">Full color, hard bound thesis printing.</span>
+                    <span class="product-store">Enterprise Name</span>
                     <div class="product-footer">
-                        <span class="product-price">&#8369;200</span>
-                        <button class="add-btn">+</button>
+                        <button class="enterprise-btn">View Enterprise</button>
                     </div>
                 </div>
             </div>
@@ -175,12 +147,9 @@
                     <img src="~/Content/Images/brownie-r.jpg" />
                 </div>
                 <div class="product-card-info">
-                    <span class="product-store">Store Name</span>
-                    <span class="product-name">Brownies</span>
-                    <span class="product-desc">Fudgy dark chocolate brownies.</span>
+                    <span class="product-store">Enterprise Name</span>
                     <div class="product-footer">
-                        <span class="product-price">&#8369;45</span>
-                        <button class="add-btn">+</button>
+                        <button class="enterprise-btn">View Enterprise</button>
                     </div>
                 </div>
             </div>

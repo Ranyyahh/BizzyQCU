@@ -1,0 +1,71 @@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Chatroom";
+    ViewBag.BodyClass = "product-page";
+}
+
+<div class="product-page-container chatroom-page-container">
+    
+
+    <div class="search-filtering chatroom-search-strip">
+        <div class="search-row w-100">
+            <div class="searchbox-section w-100">
+                <input type="text" class="search-input" id="chatSearch" placeholder="Search conversations" autocomplete="off" />
+            </div>
+        </div>
+    </div>
+
+    <div class="chatroom-shell">
+        <aside class="chatroom-sidebar">
+            <div class="chatroom-sidebar-header">Recent Chats</div>
+
+            <button class="chatroom-contact-card active" type="button">
+                <div class="chatroom-avatar">PL</div>
+                <div class="chatroom-contact-meta">
+                    <div class="chatroom-contact-name">Puto Loco</div>
+                    <div class="chatroom-contact-preview">Order accepted. Preparing now.</div>
+                </div>
+                <div class="chatroom-contact-time">2m</div>
+            </button>
+
+            <button class="chatroom-contact-card" type="button">
+                <div class="chatroom-avatar">SP</div>
+                <div class="chatroom-contact-meta">
+                    <div class="chatroom-contact-name">Spasta</div>
+                    <div class="chatroom-contact-preview">Can you confirm your pickup time?</div>
+                </div>
+                <div class="chatroom-contact-time">11m</div>
+            </button>
+
+            <button class="chatroom-contact-card" type="button">
+                <div class="chatroom-avatar">QP</div>
+                <div class="chatroom-contact-meta">
+                    <div class="chatroom-contact-name">QCU Print</div>
+                    <div class="chatroom-contact-preview">Design file received, thank you.</div>
+                </div>
+                <div class="chatroom-contact-time">35m</div>
+            </button>
+        </aside>
+
+        <section class="chatroom-thread">
+            <div class="chatroom-thread-header">
+                <div class="chatroom-thread-title">Puto Loco</div>
+                <span class="chatroom-thread-status">Online</span>
+            </div>
+
+            <div class="chatroom-messages" id="chatMessages">
+                <div class="chat-bubble incoming">Hi! Your order has been confirmed.</div>
+                <div class="chat-bubble incoming">Estimated prep time is 15-20 minutes.</div>
+                <div class="chat-bubble outgoing">Thanks! I will pick it up at 1:30 PM.</div>
+                <div class="chat-bubble incoming">Perfect, see you later.</div>
+            </div>
+
+            <form class="chatroom-composer" action="#" method="post">
+                <input type="text" class="chatroom-input" name="message" placeholder="Type your message..." />
+                <button type="submit" class="enterprise-btn chatroom-send-btn">Send</button>
+            </form>
+        </section>
+    </div>
+</div>
+
+

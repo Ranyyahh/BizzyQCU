@@ -1,0 +1,221 @@
+@media (min-width: 768px) {
+    .mobile-back-btn {
+        display: none !important;
+    }
+}
+
+.home-bg .mobile-back-btn {
+    display: none !important;
+}
+
+body.home-bg {
+    background-image: url('/Content/Images/BizzyQCU-Home-BG.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.hp-middle-content {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chatroom-page-container {
+    min-height: calc(100vh - 150px);
+    height: auto;
+    padding-bottom: 24px;
+}
+
+.chatroom-search-strip {
+    padding-bottom: 14px;
+}
+
+.chatroom-shell {
+    width: min(1200px, 94vw);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 18px;
+    min-height: 62vh;
+}
+
+.chatroom-sidebar,
+.chatroom-thread {
+    background: rgba(255, 255, 255, 0.94);
+    border-radius: 22px;
+    box-shadow: 0 10px 30px rgba(8, 15, 80, 0.2);
+}
+
+.chatroom-sidebar {
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.chatroom-sidebar-header {
+    font-weight: 700;
+    color: #111fa2;
+    padding: 8px 10px;
+}
+
+.chatroom-contact-card {
+    border: 1px solid #d7ddff;
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-align: left;
+    transition: 0.2s ease;
+}
+
+.chatroom-contact-card:hover,
+.chatroom-contact-card.active {
+    background: #eef1ff;
+    border-color: #111fa2;
+}
+
+.chatroom-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #1f2eb5, #5d6bee);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.chatroom-contact-meta {
+    min-width: 0;
+    flex: 1;
+}
+
+.chatroom-contact-name {
+    color: #1e1e1e;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.chatroom-contact-preview {
+    color: #505d86;
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.chatroom-contact-time {
+    color: #6f79a8;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.chatroom-thread {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.chatroom-thread-header {
+    border-bottom: 1px solid #dce2ff;
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+}
+
+.chatroom-thread-title {
+    color: #111fa2;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.chatroom-thread-status {
+    color: #00a36c;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.chatroom-messages {
+    flex: 1;
+    min-height: 300px;
+    max-height: 48vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 6px 2px;
+}
+
+.chat-bubble {
+    max-width: 70%;
+    border-radius: 16px;
+    padding: 10px 12px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.chat-bubble.incoming {
+    background: #f2f4ff;
+    color: #20243c;
+    align-self: flex-start;
+}
+
+.chat-bubble.outgoing {
+    background: #111fa2;
+    color: #fff;
+    align-self: flex-end;
+}
+
+.chatroom-composer {
+    display: flex;
+    gap: 10px;
+    border-top: 1px solid #dce2ff;
+    margin-top: 12px;
+    padding-top: 12px;
+}
+
+.chatroom-input {
+    flex: 1;
+    border: 1px solid #c8d0ff;
+    border-radius: 24px;
+    padding: 10px 14px;
+    outline: none;
+}
+
+.chatroom-input:focus {
+    border-color: #111fa2;
+    box-shadow: 0 0 0 3px rgba(17, 31, 162, 0.12);
+}
+
+.chatroom-send-btn {
+    min-width: 92px;
+    height: 44px;
+    border-radius: 22px;
+}
+
+@media (max-width: 992px) {
+    .chatroom-shell {
+        grid-template-columns: 1fr;
+    }
+
+    .chatroom-sidebar {
+        order: 2;
+    }
+
+    .chatroom-thread {
+        order: 1;
+    }
+
+    .chatroom-messages {
+        max-height: 42vh;
+    }
+}
