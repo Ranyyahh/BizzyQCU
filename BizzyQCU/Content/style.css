@@ -4,7 +4,6 @@ body {
     background: #f5f5f5;
 }
 
-/* ===== REMOVE SCROLL ===== */
 html, body {
     height: 100%;
     overflow: hidden;
@@ -13,7 +12,7 @@ html, body {
 /* NAVBAR */
 .main-navbar {
     background: #ffffff;
-    padding: 8px 0;
+    padding: 10px 0;
     position: fixed;
     width: 100%;
     top: 0;
@@ -23,15 +22,15 @@ html, body {
 
 .nav-container {
     width: 100%;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding: 0 30px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
     gap: 30px;
+    box-sizing: border-box;
 }
 
-/* LEFT SIDE - Logo */
+/* DESKTOP - LOGO AT NAV LINKS */
 .nav-left {
     display: flex;
     align-items: center;
@@ -39,13 +38,13 @@ html, body {
 }
 
 .logo {
-    height: 90px;
+    height: 100px;
     width: auto;
 }
 
 .nav-divider {
     width: 3px;
-    height: 35px;
+    height: 40px;
     background: #f5a623;
     border-radius: 2px;
 }
@@ -53,21 +52,27 @@ html, body {
 /* NAV LINKS */
 .nav-links {
     display: flex;
-    gap: 35px;
+    gap: 40px;
 }
 
     .nav-links a {
         text-decoration: none;
         color: #1a2a6f;
         font-weight: 700;
-        font-size: 15px;
-        letter-spacing: 0.5px;
-        transition: color 0.2s ease;
+        font-size: 16px;
+        transition: color 0.2s;
     }
 
         .nav-links a:hover {
             color: #f5a623;
         }
+
+/* MOBILE ELEMENTS - HIDDEN ON DESKTOP */
+.back-btn,
+.nav-center,
+.hamburger {
+    display: none;
+}
 
 /* BACKGROUND */
 .auth-bg {
@@ -80,34 +85,30 @@ html, body {
     background: linear-gradient(145deg, rgba(255, 200, 70, 0.88), rgba(25, 60, 180, 0.88)), url('/images/background.png') no-repeat center center/cover;
 }
 
-/* CARD BASE */
+/* CARDS */
 .auth-card {
     max-width: 92%;
     background: white;
     border-radius: 28px;
     text-align: center;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
 }
 
-    /* LOGIN CARD */
     .auth-card.login-card {
         width: 380px;
         padding: 35px 32px;
     }
 
-    /* REGISTER CUSTOMER CARD */
     .auth-card.register-customer {
         width: 370px;
         padding: 28px 28px;
     }
 
-    /* REGISTER ENTERPRISE CARD */
     .auth-card.register-enterprise {
         width: 390px;
         padding: 35px 32px;
     }
 
-    /* TITLE */
     .auth-card h2 {
         color: #1a2a6f;
         font-size: 26px;
@@ -115,7 +116,6 @@ html, body {
         font-weight: 700;
     }
 
-    /* INPUTS */
     .auth-card input:not([type="file"]) {
         width: 100%;
         padding: 11px 15px;
@@ -130,10 +130,9 @@ html, body {
         .auth-card input:not([type="file"]):focus {
             outline: none;
             border-color: #f5a623;
-            box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.15);
+            box-shadow: 0 0 0 3px rgba(245,166,35,0.15);
         }
 
-/* FILE UPLOAD */
 .upload-link-wrapper {
     margin: 8px 0;
     text-align: left;
@@ -161,7 +160,6 @@ html, body {
     color: #7a8aa5;
 }
 
-/* BUTTON */
 .auth-btn {
     width: 100%;
     padding: 11px;
@@ -179,7 +177,6 @@ html, body {
         background: #e09612;
     }
 
-/* LINKS */
 .auth-links {
     margin-top: 15px;
     font-size: 12.5px;
@@ -197,252 +194,202 @@ html, body {
             color: #f5a623;
         }
 
-/* ===== DESKTOP VIEW ===== */
-@media (min-width: 769px) {
-    .mobile-menu,
-    .hamburger,
-    .back-btn,
-    .nav-center {
-        display: none !important;
-    }
-
-    .nav-left {
-        display: flex !important;
-    }
-
-    .nav-links {
-        display: flex !important;
-    }
-}
-
 /* ===== MOBILE VIEW ===== */
 @media (max-width: 768px) {
-    /* Fix sa scroll */
     html, body {
-        overflow: auto !important;
-        height: auto !important;
+        overflow: auto;
+        height: auto;
     }
 
-    /* Itago ang desktop nav */
-    .nav-links {
-        display: none !important;
-    }
-
+    /* Hide desktop */
     .nav-left {
-        display: none !important;
+        display: none;
     }
 
-    /* Ipakita ang mobile elements */
+    .nav-links {
+        display: none;
+    }
+
+    /* Show mobile */
     .back-btn {
-        display: block !important;
+        display: block;
+    }
+
+    .nav-center {
+        display: block;
     }
 
     .hamburger {
-        display: block !important;
+        display: block;
     }
 
-    .nav-center {
-        display: block !important;
-    }
-
-    /* Ayusin ang nav-container */
     .nav-container {
-        display: flex !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-        padding: 0 15px !important;
-        position: relative !important;
-        gap: 0 !important;
+        padding: 0 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
 
-    /* Back button - nasa kaliwa */
+    /* BACK BUTTON */
     .back-btn {
-        background: #dbe3ff !important;
-        border: none !important;
-        border-radius: 12px !important;
-        padding: 8px 14px !important;
-        font-size: 18px !important;
-        cursor: pointer !important;
-        color: #1a2a6f !important;
-        order: 1 !important;
+        background: #dbe3ff;
+        border: none;
+        border-radius: 12px;
+        padding: 8px 14px;
+        font-size: 18px;
+        cursor: pointer;
+        color: #1a2a6f;
+        font-weight: bold;
     }
 
-    /* Center logo */
+    /* LOGO - DAGDAGAN PA NG LAKI */
     .nav-center {
-        position: absolute !important;
-        left: 50% !important;
-        transform: translateX(-50%) !important;
-        order: 2 !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
         .nav-center .logo {
-            height: 55px !important;
-            width: auto !important;
+            height: 85px;
+            width: auto;
         }
 
-    /* Hamburger - nasa kanan */
+    /* HAMBURGER */
     .hamburger {
-        display: block !important;
-        font-size: 30px !important;
-        cursor: pointer !important;
-        color: #1a2a6f !important;
-        background: none !important;
-        border: none !important;
-        padding: 8px 10px !important;
-        order: 3 !important;
-        margin-right: 5px !important;
+        font-size: 30px;
+        background: none;
+        border: none;
+        color: #1a2a6f;
+        cursor: pointer;
+        padding: 8px 10px;
     }
 
-    /* Mobile menu - SLIDE FROM RIGHT */
+    .nav-divider {
+        display: none;
+    }
+
+    /* SLIDE DOWN MENU - GRADIENT TULAD NG NASA IMAGE */
     .mobile-menu {
-        position: fixed !important;
-        top: 0 !important;
-        right: 0 !important;
-        width: 280px !important;
-        height: 100vh !important;
-        background: linear-gradient(180deg, #1a2a6f, #2a3a8f) !important;
-        z-index: 9999 !important;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: flex-start !important;
-        padding-top: 70px !important;
-        transform: translateX(100%) !important;
-        transition: transform 0.3s ease-in-out !important;
-        box-shadow: -5px 0 20px rgba(0,0,0,0.3) !important;
+        position: fixed;
+        top: 79px;
+        left: 0;
+        width: 100%;
+        background: linear-gradient(135deg, #1a2a6f 0%, #2a3a8f 50%, #3a4aaf 100%);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out;
+        z-index: 999;
+        border-radius: 0 0 20px 20px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     }
 
         .mobile-menu.active {
-            transform: translateX(0) !important;
+            max-height: 450px;
+            padding: 25px 0;
         }
 
-        /* Close button */
-        .mobile-menu .close-menu {
-            position: absolute !important;
-            top: 15px !important;
-            right: 20px !important;
-            font-size: 32px !important;
-            cursor: pointer !important;
-            color: white !important;
-            background: none !important;
-            border: none !important;
-            padding: 5px 10px !important;
-        }
-
-            .mobile-menu .close-menu:hover {
-                color: #f5a623 !important;
-            }
-
-        /* Mobile menu links */
+        /* MENU LINKS */
         .mobile-menu a {
-            display: block !important;
-            color: white !important;
-            text-decoration: none !important;
-            font-size: 18px !important;
-            padding: 14px 20px !important;
-            margin: 5px 0 !important;
-            text-align: center !important;
-            font-weight: 600 !important;
-            width: 100% !important;
-            border-bottom: 1px solid rgba(255,255,255,0.15) !important;
+            display: block;
+            text-align: center;
+            padding: 12px 20px;
+            margin: 0 auto;
+            color: white;
+            text-decoration: none;
+            font-size: 17px;
+            font-weight: 600;
+            width: 50%;
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+            letter-spacing: 1px;
         }
+
+            .mobile-menu a:last-child {
+                border-bottom: none;
+            }
 
             .mobile-menu a:hover {
-                color: #f5a623 !important;
-                background: rgba(255,255,255,0.1) !important;
+                color: #ffde42;
+                background: rgba(255,255,255,0.1);
+                border-radius: 12px;
             }
 
-        .mobile-menu h2 {
-            color: #f5a623 !important;
-            margin-bottom: 30px !important;
-            font-size: 24px !important;
-            text-align: center !important;
-        }
-
-    /* Fix sa background */
+    /* FIX BACKGROUND */
     .auth-bg {
-        height: auto !important;
-        min-height: 100vh !important;
-        padding-top: 100px !important;
-        padding-bottom: 40px !important;
-        overflow-y: auto !important;
+        height: auto;
+        min-height: 100vh;
+        padding-top: 100px;
+        padding-bottom: 40px;
+        overflow-y: auto;
     }
 
-    /* CARD SIZE - sa mobile */
+    /* CARD SIZE */
     .auth-card.login-card,
     .auth-card.register-customer,
     .auth-card.register-enterprise {
-        width: 88% !important;
-        max-width: 320px !important;
-        padding: 22px 18px !important;
-        margin: 0 auto !important;
+        width: 90%;
+        max-width: 320px;
+        padding: 22px 18px;
+        margin: 0 auto;
     }
 
     .auth-card h2 {
-        font-size: 22px !important;
-        margin-bottom: 14px !important;
+        font-size: 22px;
+        margin-bottom: 14px;
     }
 
     .auth-card input:not([type="file"]) {
-        padding: 9px 12px !important;
-        font-size: 12px !important;
-        margin: 5px 0 !important;
+        padding: 9px 12px;
+        font-size: 12px;
+        margin: 5px 0;
     }
 
     .auth-btn {
-        padding: 9px !important;
-        font-size: 13px !important;
-        margin-top: 12px !important;
+        padding: 9px;
+        font-size: 13px;
+        margin-top: 12px;
     }
 
     .auth-links {
-        font-size: 11px !important;
-        margin-top: 12px !important;
-    }
-
-    .upload-text-link {
-        font-size: 11px !important;
-    }
-
-    .file-name-display {
-        font-size: 9px !important;
+        font-size: 11px;
+        margin-top: 12px;
     }
 }
 
-/* ===== SOBRANG LIIT NA SCREEN ===== */
+/* SOBRANG LIIT NA SCREEN */
 @media (max-width: 480px) {
-    .auth-card.login-card,
-    .auth-card.register-customer,
-    .auth-card.register-enterprise {
-        width: 90% !important;
-        max-width: 290px !important;
-        padding: 18px 15px !important;
-    }
-
-    .auth-card h2 {
-        font-size: 20px !important;
-    }
-
     .nav-center .logo {
-        height: 45px !important;
-    }
-
-    .hamburger {
-        font-size: 28px !important;
-        padding: 5px 8px !important;
+        height: 70px;
     }
 
     .back-btn {
-        padding: 6px 12px !important;
-        font-size: 16px !important;
+        padding: 6px 12px;
+        font-size: 16px;
+    }
+
+    .hamburger {
+        font-size: 28px;
+        padding: 5px 8px;
     }
 
     .mobile-menu {
-        width: 260px !important;
+        top: 71px;
     }
 
         .mobile-menu a {
-            font-size: 16px !important;
-            padding: 12px 16px !important;
+            font-size: 15px;
+            padding: 10px 16px;
+            width: 65%;
         }
+
+    .auth-card.login-card,
+    .auth-card.register-customer,
+    .auth-card.register-enterprise {
+        width: 92%;
+        max-width: 290px;
+        padding: 18px 15px;
+    }
+
+    .auth-card h2 {
+        font-size: 20px;
+    }
 }
