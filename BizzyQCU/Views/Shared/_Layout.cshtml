@@ -11,7 +11,7 @@
     <nav class="main-navbar">
         <div class="nav-container">
 
-            <!-- DESKTOP NAV -->
+            <!-- DESKTOP: LOGO AT NAV LINKS -->
             <div class="nav-left">
                 <img src="~/images/logo.png" alt="BizzyQCU" class="logo" />
                 <div class="nav-divider"></div>
@@ -24,28 +24,27 @@
                 <a href="#">ABOUT US</a>
             </div>
 
-            <!-- MOBILE UI -->
-            <button class="back-btn" onclick="history.back()">&#8592;</button>
+            <!-- MOBILE: BACK BUTTON -->
+            <button class="back-btn" onclick="history.back()">&lt;</button>
 
+            <!-- MOBILE: CENTER LOGO -->
             <div class="nav-center">
-                <img src="~/images/logo.png" class="logo" />
+                <img src="~/images/logo.png" alt="BizzyQCU" class="logo" />
             </div>
 
-            <div class="hamburger" onclick="toggleMenu()">☰</div>
+            <!-- MOBILE: HAMBURGER -->
+            <button class="hamburger" onclick="toggleMenu()">☰</button>
 
         </div>
     </nav>
 
-    <!-- MOBILE MENU na may close button -->
+    <!-- SLIDE DOWN MENU - GRADIENT BACKGROUND -->
     <div class="mobile-menu" id="mobileMenu">
-        <button class="close-menu" onclick="toggleMenu()">&times;</button>
-        <h2>BizzyQCU</h2>
         <a href="#" onclick="toggleMenu()">HOME</a>
         <a href="#" onclick="toggleMenu()">PRODUCTS</a>
         <a href="#" onclick="toggleMenu()">ENTERPRISES</a>
         <a href="#" onclick="toggleMenu()">ABOUT US</a>
-        <a href="#" onclick="toggleMenu()">LOG IN</a>
-        <a href="#" onclick="toggleMenu()">REGISTER</a>
+        <a href="#" onclick="toggleMenu()">ACCOUNT</a>
     </div>
 
     @RenderBody()
@@ -54,16 +53,9 @@
         function toggleMenu() {
             var menu = document.getElementById("mobileMenu");
             menu.classList.toggle("active");
-
-            // Para hindi mag-scroll ang body kapag bukas ang menu
-            if (menu.classList.contains("active")) {
-                document.body.style.overflow = "hidden";
-            } else {
-                document.body.style.overflow = "";
-            }
         }
 
-        // Close menu kapag nag-click sa labas
+        // Close menu when clicking outside
         document.addEventListener('click', function (event) {
             var menu = document.getElementById("mobileMenu");
             var hamburger = document.querySelector('.hamburger');
@@ -72,25 +64,14 @@
                 !menu.contains(event.target) &&
                 !hamburger.contains(event.target)) {
                 menu.classList.remove('active');
-                document.body.style.overflow = "";
             }
         });
 
-        // Close menu kapag nag-resize sa desktop
+        // Close menu on resize
         window.addEventListener('resize', function () {
             if (window.innerWidth > 768) {
                 var menu = document.getElementById("mobileMenu");
-                menu.classList.remove("active");
-                document.body.style.overflow = "";
-            }
-        });
-
-        // Close menu kapag pinindot ang back button ng browser
-        window.addEventListener('popstate', function () {
-            var menu = document.getElementById("mobileMenu");
-            if (menu.classList.contains("active")) {
-                menu.classList.remove("active");
-                document.body.style.overflow = "";
+                menu.classList.remove('active');
             }
         });
     </script>
