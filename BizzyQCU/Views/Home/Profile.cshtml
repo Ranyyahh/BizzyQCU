@@ -7,8 +7,8 @@
 <section class="screen screen-profile">
     <div class="profile-panel">
 
-        @using (Html.BeginForm("Profile", "Home", FormMethod.Post,
-            new { @class = "profile-form", id = "profileForm", data_start_editing = "false" }))
+        @using (Html.BeginForm("UserProfile", "Home", FormMethod.Post,
+            new { @class = "profile-form", id = "profileForm" }))
         {
             @Html.AntiForgeryToken()
 

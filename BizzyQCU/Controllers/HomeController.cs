@@ -140,16 +140,29 @@ namespace User_Profile_Seller_Juvi.Controllers
             return View(BuildDashboardViewModel());
         }
 
-        [ActionName("Profile")]
+        [ActionName("UserProfile")]
         public ActionResult ProfilePage()
         {
             PrepareProfilePage("Profile", "enterprises");
             return View("Profile", BuildAccountSettingsViewModel(GetProfile(), new ChangePasswordViewModel()));
         }
 
-        public ActionResult UserProfile()
+        public ActionResult UserProfileLegacy()
         {
-            return RedirectToAction("Profile");
+            return RedirectToAction("UserProfile");
+            var model = new AccountSettingsPageViewModel
+            {
+                Profile = new UserProfileViewModel
+                {
+                    PhotoDataUrl = DefaultPhotoDataUrl(),
+                    EnterpriseName = "Customer Name",
+                    Email = "customer@email.com",
+                    Contact = "09123456789"
+                },
+                PasswordChange = new ChangePasswordViewModel()
+            };
+
+            return View(model);
         }
 
         public ActionResult AccountSettings()
@@ -159,7 +172,7 @@ namespace User_Profile_Seller_Juvi.Controllers
         }
 
         [HttpPost]
-        [ActionName("Profile")]
+        [ActionName("UserProfile")]
         [ValidateAntiForgeryToken]
         public ActionResult SaveProfile([Bind(Prefix = "Profile")] UserProfileViewModel model)
         {
@@ -177,7 +190,7 @@ namespace User_Profile_Seller_Juvi.Controllers
 
             Session[ProfileSessionKey] = model;
             TempData["FlashMessage"] = "Profile information saved.";
-            return RedirectToAction("Profile");
+            return RedirectToAction("UserProfile");
         }
 
         [HttpPost]
@@ -227,7 +240,7 @@ namespace User_Profile_Seller_Juvi.Controllers
             }
 
             TempData["FlashMessage"] = "Demo mode: password change validated successfully. No real password was changed.";
-            return RedirectToAction("Profile");
+            return RedirectToAction("UserProfile");
         }
 
         [HttpPost]
