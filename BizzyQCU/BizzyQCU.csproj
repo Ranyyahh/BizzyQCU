@@ -120,6 +120,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\TrackingController.cs" />
     <Compile Include="Controllers\EnterpriseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductListController.cs" />
@@ -151,6 +152,7 @@
     <Content Include="Content\Images\test-img1.jpg" />
     <Content Include="Content\Images\test-img2.jpg" />
     <Content Include="Content\MobileNavbar.css" />
+    <Content Include="Content\trackingstyle.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -191,6 +193,8 @@
     <Content Include="Views\ProductList\ProductList.cshtml" />
     <Content Include="Views\Enterprise\ViewEnterprise.cshtml" />
     <Content Include="Views\Enterprise\EnterpriseList.cshtml" />
+    <Content Include="Views\Tracking\tracking.cshtml" />
+    <Content Include="Views\Tracking\history.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

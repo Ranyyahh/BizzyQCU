@@ -1,0 +1,47 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Order History";
+}
+<link rel="stylesheet" href="~/Content/trackingstyle.css" />
+
+<div class="split-wrapper">
+    <div class="sidebar-fixed">
+        <div class="sidebar-icon-container">
+            <div class="status-emoji-box">🍳</div>
+            <div class="status-text-group">
+                <p class="status-title">Preparing Order</p>
+                <span class="status-subtitle">ETA: 10:55 AM</span>
+            </div>
+            <div class="eta-bubble">
+                <span style="font-size:20px; font-weight:900; display:block;">8</span>
+                <small style="font-size:8px; font-weight:800;">MINS</small>
+            </div>
+        </div>
+        <div class="custom-progress-bar"><div class="progress-fill"></div></div>
+        <h1 class="order-number">Order #QCU-9821</h1>
+        <p class="live-indicator">LIVE STATUS</p>
+
+        <a href="@Url.Action("tracking", "tracking")" class="btn-back-link">← Back to Tracker</a>
+    </div>
+
+    <div class="scrollable-area">
+        <div style="width:100%; max-width:600px; margin-bottom:15px;">
+            <p style="color:white; font-weight:800; letter-spacing:1px; margin:0;">RECENT ORDERS</p>
+        </div>
+
+        <div class="glass-card">
+            <div class="history-card-header">
+                <div>
+                    <h4 class="status-title" style="font-size:22px;">Campus Eats</h4>
+                    <span class="status-subtitle">Today • 12:30 PM</span>
+                </div>
+                <span class="badge-completed">Completed</span>
+            </div>
+            <p style="color:#5478FF; font-weight:600; margin:15px 0; font-size:14px;">2x Pork Sisig Rice, 1x Mountain Dew</p>
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="color:#111FA2; font-weight:900; font-size:24px;">₱145.00</span>
+                <button class="btn-primary">Reorder</button>
+            </div>
+        </div>
+    </div>
+</div>

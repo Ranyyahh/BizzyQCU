@@ -1,0 +1,55 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Tracking";
+}
+<link rel="stylesheet" href="~/Content/trackingstyle.css" />
+
+<div class="split-wrapper">
+    <div class="sidebar-fixed">
+        <div class="sidebar-icon-container">
+            <div class="status-emoji-box">🍳</div>
+            <div class="status-text-group">
+                <p class="status-title">Preparing Order</p>
+                <span class="status-subtitle">ETA: 10:55 AM</span>
+            </div>
+            <div class="eta-bubble">
+                <span style="font-size:20px; font-weight:900; display:block;">8</span>
+                <small style="font-size:8px; font-weight:800;">MINS</small>
+            </div>
+        </div>
+        <div class="custom-progress-bar"><div class="progress-fill"></div></div>
+        <h1 class="order-number">Order #QCU-9821</h1>
+        <p class="live-indicator">LIVE STATUS</p>
+    </div>
+
+    <div class="scrollable-area">
+        <a href="@Url.Action("history", "tracking")" class="glass-card" style="text-align: center; text-decoration: none; font-weight: 800; color: #111FA2; display: block;">
+            🕒 Check Previous Orders
+        </a>
+
+        <div class="glass-card">
+            <p class="status-subtitle" style="color:#5478FF; font-weight:800; margin-bottom:5px;">📍 YOUR LOCATION</p>
+            <h2 style="color:#111FA2; font-weight:800; margin:0;">Room IL603</h2>
+            <div style="background:#FFF9DB; padding:10px; border-radius:10px; margin-top:10px; border-left:4px solid #FFDE42; font-size:13px;">
+                "Bring change for 100 pesos"
+            </div>
+        </div>
+
+        <div class="glass-card">
+            <p class="status-subtitle" style="color:#5478FF; font-weight:800; margin-bottom:10px;">ORDER DETAILS</p>
+            <div style="display:flex; justify-content:space-between; margin-bottom:5px; color:#111FA2;"><span>1x Special Siomai Rice</span><b>₱55.00</b></div>
+            <div style="display:flex; justify-content:space-between; color:#111FA2;"><span>1x Iced Coffee (Small)</span><b>₱30.00</b></div>
+            <hr style="border:0; border-top:1px solid #eee; margin:15px 0;">
+            <div style="display:flex; justify-content:space-between; font-size:20px; font-weight:900; color:#111FA2;"><span>Total</span><span>₱85.00</span></div>
+        </div>
+
+        <div class="glass-card" style="display:flex; align-items:center; gap:15px;">
+            <div class="status-emoji-box" style="width:50px; height:50px; font-size:20px; background:#111FA2; color:white;">JT</div>
+            <div style="flex:1;">
+                <p class="status-title" style="font-size:16px;">Jediael Tangonan</p>
+                <span class="status-subtitle">BSIT-2D • Courier</span>
+            </div>
+            <span style="font-size:24px; cursor:pointer;">💬</span>
+        </div>
+    </div>
+</div>
