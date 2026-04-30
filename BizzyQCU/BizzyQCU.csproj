@@ -143,9 +143,15 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\Edit.css" />
+    <Content Include="Content\Home\about.css" />
+    <Content Include="Content\Home\dashboard.css" />
+    <Content Include="Content\Home\profile.css" />
+    <Content Include="Content\Home\transactions.css" />
     <Content Include="Content\Images\account-icon.png" />
     <Content Include="Content\Images\cart-icon.png" />
     <Content Include="Content\Images\Logo.png" />
+    <Content Include="Content\Shared\base.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -189,6 +195,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Home\" />
+    <Folder Include="Content\Shared\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

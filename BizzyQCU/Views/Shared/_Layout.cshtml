@@ -1,75 +1,81 @@
 @{
-    var actionName = (ViewContext.RouteData.Values["action"] as string ?? "Index").ToLowerInvariant();
-    var navSection = (ViewBag.NavSection as string ?? actionName).ToLowerInvariant();
     var pageClass = ViewBag.PageClass as string ?? string.Empty;
     var showBackButton = ViewBag.ShowBackButton != null && (bool)ViewBag.ShowBackButton;
     var hideGlobalHeader = ViewBag.HideGlobalHeader != null && (bool)ViewBag.HideGlobalHeader;
+    var pageTitle = ViewData["Title"] ?? ViewBag.Title;
 }
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - BizzyQCU</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@pageTitle - BizzyQCU</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="@Url.Content("~/Content/layout.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/home_about_product_ent.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/MobileNavbar.css")">
+    @if (IsSectionDefined("Styles"))
+    {
+        @RenderSection("Styles", required: false)
+    }
+    else if (IsSectionDefined("styles"))
+    {
+        @RenderSection("styles", required: false)
+    }
 </head>
 <body class="app-body @pageClass">
+
     @if (!hideGlobalHeader)
     {
-        <header class="site-header">
-            <nav class="navbar navbar-expand-lg site-nav">
-                <div class="container-fluid site-nav-inner">
-                    <a class="site-brand" href="@Url.Action("Index", "Home")" aria-label="BizzyQCU home">
-                        <img class="brand-logo-image" src="@Url.Content("~/Content/Images/Logo.png")" alt="BizzyQCU" />
-                    </a>
+        <div class="navbar">
 
-                    <button class="navbar-toggler site-menu-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#siteMenu" aria-controls="siteMenu" aria-expanded="false" aria-label="Toggle navigation">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
+            @if (showBackButton)
+            {
+                <a href="javascript:history.back()" class="mobile-back-btn">
+                    <img src="@Url.Content("~/Content/images/back-btn.png")" class="back-icon" />
+                </a>
+            }
 
-                    <div class="collapse navbar-collapse" id="siteMenu">
-                        <div class="site-nav-divider"></div>
-                        <ul class="navbar-nav mx-auto site-nav-links">
-                            <li class="nav-item">
-                                <a class="nav-link @(navSection == "home" ? "is-active" : string.Empty)" href="@Url.Action("Index", "Home")">HOME</a>
-                            </li>
-                            <li class="nav-item">
-                                <span class="nav-link nav-link-static">PRODUCTS</span>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link @(navSection == "enterprises" ? "is-active" : string.Empty)" href="@Url.Action("Enterprise", "Home")">ENTERPRISES</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link @(navSection == "about" ? "is-active" : string.Empty)" href="@Url.Action("About", "Home")">ABOUT US</a>
-                            </li>
-                        </ul>
-                        <div class="site-header-icons">
-                            <span class="header-icon-button inert-header-icon" aria-label="Shopping cart">
-                                <img class="header-icon-image" src="@Url.Content("~/Content/Images/cart-icon.png")" alt="" aria-hidden="true" />
-                            </span>
-                            <a class="header-profile-button" href="@Url.Action("Index", "Home")" aria-label="Open landing page">
-                                <img class="header-icon-image header-icon-image-profile" src="@Url.Content("~/Content/Images/account-icon.png")" alt="" aria-hidden="true" />
-                            </a>
-                        </div>
-                    </div>
+            <div class="logo">
+                <a href="@Url.Action("Homepage", "Home")"><img src="@Url.Content("~/Content/images/Logo.png")" alt="logo"></a>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="nav-links" id="mainNav">
+                <a href="@Url.Action("Homepage", "Home")">HOME</a>
+                <a href="@Url.Action("ProductList", "Home")">PRODUCTS</a>
+                <a href="@Url.Action("Enterprise", "Home")">ENTERPRISES</a>
+                <a href="@Url.Action("About", "Home")">ABOUT US</a>
+
+                <a href="@Url.Action("Profile", "Home")" class="account-mobile">
+                    ACCOUNT
+                </a>
+
+            </div>
+
+            <div class="right-icons">
+                <div class="cart-icon">
+                    <a href="@Url.Action("Transactions", "Home")"><img src="@Url.Content("~/Content/images/cart-icon.png")"></a>
                 </div>
-            </nav>
-        </header>
+                <div class="account-icon account-desktop">
+                    <a href="@Url.Action("Profile", "Home")">
+                        <img src="@Url.Content("~/Content/images/account-icon.png")">
+                    </a>
+                </div>
+
+
+                <button class="hamburger" id="hamburgerBtn">
+                    &#9776;
+                </button>
+            </div>
+
+        </div>
     }
 
     <main class="page-root">
-        @if (showBackButton)
-        {
-            <button class="back-button" type="button" onclick="if (window.history.length > 1) { window.history.back(); } else { window.location.href = '@Url.Action("Index", "Home")'; }" aria-label="Go back">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M14.5 6.5 9 12l5.5 5.5"></path>
-                </svg>
-            </button>
-        }
-
         @if (TempData["FlashMessage"] != null)
         {
             <div class="flash-message" role="status">@TempData["FlashMessage"]</div>
@@ -77,9 +83,47 @@
 
         @RenderBody()
     </main>
+    <br />
+    <br />
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    @if (IsSectionDefined("Scripts"))
+    {
+        @RenderSection("Scripts", required: false)
+    }
+    else if (IsSectionDefined("scripts"))
+    {
+        @RenderSection("scripts", required: false)
+    }
+
+
+    <!--FOR HAMBURGER TOGGLE-->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const btn = document.getElementById("hamburgerBtn");
+            const nav = document.getElementById("mainNav");
+            const body = document.body;
+
+            if (!btn || !nav) {
+                return;
+            }
+
+            btn.addEventListener("click", function () {
+                nav.classList.toggle("open");
+                body.classList.toggle("menu-open", nav.classList.contains("open"));
+            });
+
+            nav.querySelectorAll("a").forEach(function (link) {
+                link.addEventListener("click", function () {
+                    nav.classList.remove("open");
+                    body.classList.remove("menu-open");
+                });
+            });
+        });
+
+
+    </script>
 </body>
 </html>

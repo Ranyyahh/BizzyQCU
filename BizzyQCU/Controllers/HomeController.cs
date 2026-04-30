@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace User_Profile_Seller_Juvi.Controllers
 {
-    // ==================== MODELS ====================
+    // ==================== MODELS (nasa loob ng controller) ====================
     [Serializable]
     public class EnterpriseSummary
     {
@@ -142,57 +142,48 @@ namespace User_Profile_Seller_Juvi.Controllers
             return View(BuildDashboardViewModel());
         }
 
-        // ==================== CUSTOMER/USER PROFILE ====================
-        // URL: /Home/Profile
-        public ActionResult Profile()
+        [ActionName("Homepage")]
+        public ActionResult Homepage()
         {
-            var model = new AccountSettingsPageViewModel
-            {
-                Profile = new UserProfileViewModel
-                {
-                    PhotoDataUrl = DefaultPhotoDataUrl(),
-                    EnterpriseName = "Juan Dela Cruz",
-                    Email = "juandelacruz@email.com",
-                    Contact = "09123456789",
-                    EnterpriseType = "Customer",
-                    ManagerName = "",
-                    StudentId = "",
-                    Section = "",
-                    ManagerContactNumber = "",
-                    QrDataUrl = ""
-                },
-                PasswordChange = new ChangePasswordViewModel()
-            };
-            return View("UserProfile", model);
+            return RedirectToAction("Index");
         }
 
-        // ==================== ENTERPRISE PROFILE ====================
-        // URL: /Home/EnterpriseProfile (may sariling view na EnterpriseProfile.cshtml)
+        [ActionName("ProductList")]
+        public ActionResult ProductListPage()
+        {
+            return RedirectToAction("Index");
+        }
+
+        [ActionName("Enterprise")]
+        public ActionResult Enterprise()
+        {
+            return RedirectToAction("Profile");
+        }
+
+        [ActionName("Profile")]
         public ActionResult EnterpriseProfile()
         {
-            PrepareProfilePage("EnterpriseProfile", "enterprises");
-            return View("EnterpriseProfile", BuildAccountSettingsViewModel(GetProfile(), new ChangePasswordViewModel()));
+            PrepareProfilePage("Profile", "enterprises");
+            return View("Profile", BuildAccountSettingsViewModel(GetProfile(), new ChangePasswordViewModel()));
         }
 
-        // ==================== ACCOUNT SETTINGS (iba pa to) ====================
+        public ActionResult UserProfile()
+        {
+           return RedirectToAction("Profile"); 
+        }
+
         public ActionResult AccountSettings()
         {
             PrepareProfilePage("AccountSettings", "none");
             return View("Profile", BuildAccountSettingsViewModel(GetProfile(), new ChangePasswordViewModel()));
         }
 
-        // ==================== REDIRECTS (for backward compatibility) ====================
-        public ActionResult UserProfile()
-        {
-            return RedirectToAction("Profile");
-        }
-
-        // ==================== SAVE METHODS ====================
         [HttpPost]
+        [ActionName("Profile")]
         [ValidateAntiForgeryToken]
-        public ActionResult SaveEnterpriseProfile([Bind(Prefix = "Profile")] UserProfileViewModel model)
+        public ActionResult SaveProfile([Bind(Prefix = "Profile")] UserProfileViewModel model)
         {
-            PrepareProfilePage("EnterpriseProfile", "enterprises");
+            PrepareProfilePage("Profile", "enterprises");
 
             if (string.IsNullOrWhiteSpace(model.PhotoDataUrl))
             {
@@ -201,24 +192,25 @@ namespace User_Profile_Seller_Juvi.Controllers
 
             if (!ModelState.IsValid)
             {
-                return View("EnterpriseProfile", BuildAccountSettingsViewModel(model, new ChangePasswordViewModel()));
+                return View("Profile", BuildAccountSettingsViewModel(model, new ChangePasswordViewModel()));
             }
 
             Session[ProfileSessionKey] = model;
-            TempData["FlashMessage"] = "Enterprise profile information saved.";
-            return RedirectToAction("EnterpriseProfile");
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult SaveProfile([Bind(Prefix = "Profile")] UserProfileViewModel model)
-        {
-            TempData["FlashMessage"] = "User profile saved successfully.";
+            TempData["FlashMessage"] = "Profile information saved.";
             return RedirectToAction("Profile");
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        public ActionResult SaveUserProfile([Bind(Prefix = "Profile")] UserProfileViewModel model)
+        {
+            TempData["FlashMessage"] = "User profile saved successfully.";
+            return RedirectToAction("UserProfile");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [ActionName("AccountSettings")]
         public ActionResult SaveAccountSettings([Bind(Prefix = "Profile")] UserProfileViewModel model)
         {
             PrepareProfilePage("AccountSettings", "none");
@@ -238,12 +230,11 @@ namespace User_Profile_Seller_Juvi.Controllers
             return RedirectToAction("AccountSettings");
         }
 
-        // ==================== PASSWORD METHODS ====================
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult ChangePassword([Bind(Prefix = "PasswordChange")] ChangePasswordViewModel model)
         {
-            PrepareProfilePage("EnterpriseProfile", "enterprises");
+            PrepareProfilePage("Profile", "enterprises");
 
             var profile = GetProfile();
             var pageModel = BuildAccountSettingsViewModel(profile, model);
@@ -251,7 +242,7 @@ namespace User_Profile_Seller_Juvi.Controllers
 
             if (!ModelState.IsValid)
             {
-                return View("EnterpriseProfile", pageModel);
+                return View("Profile", pageModel);
             }
 
             if (string.Equals(model.CurrentPassword, model.NewPassword, StringComparison.Ordinal))
@@ -261,11 +252,11 @@ namespace User_Profile_Seller_Juvi.Controllers
 
             if (!ModelState.IsValid)
             {
-                return View("EnterpriseProfile", pageModel);
+                return View("Profile", pageModel);
             }
 
             TempData["FlashMessage"] = "Demo mode: password change validated successfully.";
-            return RedirectToAction("EnterpriseProfile");
+            return RedirectToAction("Profile");
         }
 
         [HttpPost]
@@ -297,7 +288,6 @@ namespace User_Profile_Seller_Juvi.Controllers
             return RedirectToAction("AccountSettings");
         }
 
-        // ==================== OTHER ACTIONS ====================
         public ActionResult Transactions(string search = null)
         {
             ViewBag.PageClass = "page-transactions";
@@ -343,7 +333,6 @@ namespace User_Profile_Seller_Juvi.Controllers
             return RedirectToAction("Transactions");
         }
 
-        // ==================== PRIVATE METHODS ====================
         private void PrepareProfilePage(string settingsAction, string navSection)
         {
             ViewBag.PageClass = "page-profile";

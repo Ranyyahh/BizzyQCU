@@ -1,0 +1,4 @@
+body.app-body > .navbar .nav-links a.active,
+body.app-body > .navbar .nav-links a[aria-current="page"] {
+    color: #11228e;
+}

@@ -1,17 +1,8 @@
 @model User_Profile_Seller_Juvi.Controllers.AccountSettingsPageViewModel
 
 <div class="profile-main">
-    <div class="profile-photo-tools">
-        <img id="profilePreview" class="avatar-image large-avatar"
-             src="@Model.Profile.PhotoDataUrl" />
+    <div class="profile-title">Enterprise Information</div>
 
-        <div class="profile-tool-buttons">
-            <button id="changePhotoBtn" class="primary-action-button" type="button">Change Photo</button>
-            <button id="uploadQrBtn" class="primary-action-button secondary" type="button">Upload QR</button>
-            <button id="editInfoBtn" class="primary-action-button secondary" type="button">Edit Info</button>
-        </div>
-    </div>
-    
     <div class="profile-fields-block">
         <div class="profile-field-row">
             @Html.LabelFor(m => m.Profile.EnterpriseName)

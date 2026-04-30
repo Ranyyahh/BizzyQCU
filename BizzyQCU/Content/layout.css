@@ -1,0 +1,128 @@
+body.app-body {
+    margin: 0;
+}
+
+body.app-body > .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+    width: 100%;
+    min-height: 88px;
+    padding: 0 28px 0 22px;
+    background: #ffffff;
+    border-bottom: 1px solid #d8d8d8;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
+}
+
+body.app-body > .navbar .mobile-back-btn {
+    display: none;
+    flex: 0 0 auto;
+}
+
+body.app-body > .navbar .back-icon {
+    display: block;
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+body.app-body > .navbar .logo {
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+}
+
+body.app-body > .navbar .logo a {
+    display: inline-flex;
+    align-items: center;
+}
+
+body.app-body > .navbar .logo img {
+    display: block;
+    width: auto;
+    height: 58px;
+    max-width: 170px;
+    object-fit: contain;
+}
+
+body.app-body > .navbar .divider {
+    width: 3px;
+    height: 40px;
+    background: #f0bc26;
+    flex: 0 0 auto;
+}
+
+body.app-body > .navbar .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 38px;
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+body.app-body > .navbar .nav-links a {
+    color: #1d33b2;
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: 0;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+body.app-body > .navbar .nav-links a:hover,
+body.app-body > .navbar .nav-links a:focus {
+    color: #11228e;
+}
+
+body.app-body > .navbar .account-mobile {
+    display: none;
+}
+
+body.app-body > .navbar .right-icons {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex: 0 0 auto;
+}
+
+body.app-body > .navbar .cart-icon,
+body.app-body > .navbar .account-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body.app-body > .navbar .cart-icon a,
+body.app-body > .navbar .account-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body.app-body > .navbar .cart-icon img,
+body.app-body > .navbar .account-icon img {
+    display: block;
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+}
+
+body.app-body > .navbar .hamburger {
+    display: none;
+    border: 0;
+    background: transparent;
+    color: #1d33b2;
+    font-size: 24px;
+    line-height: 1;
+    padding: 0;
+    cursor: pointer;
+}
+
+body.app-body .page-root {
+    padding-top: 18px;
+}

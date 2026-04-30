@@ -24,7 +24,11 @@ namespace User_Profile_Seller_Juvi
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/Shared/base.css",
+                      "~/Content/Home/dashboard.css",
+                      "~/Content/Home/profile.css",
+                      "~/Content/Home/transactions.css",
+                      "~/Content/Home/about.css"));
         }
     }
 }

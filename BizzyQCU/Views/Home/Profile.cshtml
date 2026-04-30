@@ -7,7 +7,7 @@
 <section class="screen screen-profile">
     <div class="profile-panel">
 
-        @using (Html.BeginForm("UserProfile", "Home", FormMethod.Post,
+        @using (Html.BeginForm((string)ViewBag.SettingsAction ?? "Profile", "Home", FormMethod.Post,
             new { @class = "profile-form", id = "profileForm" }))
         {
             @Html.AntiForgeryToken()
@@ -19,6 +19,20 @@
             <!-- ✅ FILE INPUTS -->
             <input id="photoInput" type="file" accept="image/*" hidden />
             <input id="qrInput" type="file" accept="image/*" hidden />
+
+            <!-- PHOTO SECTION -->
+            <div class="profile-photo-section">
+                <div class="profile-photo-tools">
+                    <img id="profilePreview" class="avatar-image large-avatar"
+                         src="@Model.Profile.PhotoDataUrl" />
+
+                    <div class="profile-tool-buttons">
+                        <button id="changePhotoBtn" class="primary-action-button" type="button">Change Photo</button>
+                        <button id="uploadQrBtn" class="primary-action-button secondary" type="button">Upload QR</button>
+                        <button id="editInfoBtn" class="primary-action-button secondary" type="button">Edit Info</button>
+                    </div>
+                </div>
+            </div>
 
             <div class="profile-layout">
 
@@ -54,6 +68,8 @@
             var qrInput = document.getElementById("qrInput");
 
             var preview = document.getElementById("profilePreview");
+            var qrPreview = document.getElementById("qrPreview");
+            var qrPlaceholder = document.getElementById("qrPlaceholder");
             var photoData = document.getElementById("PhotoDataUrl");
             var qrData = document.getElementById("QrDataUrl");
 
@@ -89,6 +105,7 @@
             // PHOTO UPLOAD
             // ======================
             changePhotoButton.addEventListener("click", function () {
+                photoInput.value = "";
                 photoInput.click();
             });
 
@@ -96,6 +113,7 @@
             // QR UPLOAD
             // ======================
             uploadQrButton.addEventListener("click", function () {
+                qrInput.value = "";
                 qrInput.click();
             });
 
@@ -121,6 +139,13 @@
 
             wireUpload(qrInput, function (dataUrl) {
                 if (qrData) qrData.value = dataUrl;
+                if (qrPreview) {
+                    qrPreview.src = dataUrl;
+                    qrPreview.classList.remove("is-hidden");
+                }
+                if (qrPlaceholder) {
+                    qrPlaceholder.classList.add("is-hidden");
+                }
             });
 
         });

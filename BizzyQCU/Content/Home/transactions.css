@@ -1,0 +1,282 @@
+.screen-transactions {
+    width: min(1180px, calc(100% - 54px));
+}
+
+.transactions-toolbar {
+    display: grid;
+    grid-template-columns: 26px auto minmax(320px, 430px);
+    align-items: center;
+    gap: 12px;
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 10px 18px;
+    min-height: 56px;
+}
+
+.toolbar-brand {
+    justify-self: start;
+    gap: 0;
+}
+
+.toolbar-brand .brand-logo-image-compact {
+    width: 92px;
+}
+
+.transactions-search-form {
+    position: relative;
+    width: 100%;
+    justify-self: end;
+}
+
+.transactions-search-form input {
+    width: 100%;
+    height: 42px;
+    max-width: none;
+    border: 1px solid #e1e1e1;
+    border-radius: 20px;
+    padding: 0 50px 0 18px;
+    font-size: 0.98rem;
+    color: #3b3b3b;
+    background: #ffffff;
+}
+
+.transactions-search-form button {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    border: 0;
+    background: transparent;
+    padding: 0;
+}
+
+.transactions-search-form button svg {
+    width: 31px;
+    height: 31px;
+    fill: none;
+    stroke: var(--app-blue);
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.transactions-panel {
+    margin-top: 2px;
+    border-radius: 28px;
+    padding: 34px 24px 38px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.76) 0%, rgba(205, 209, 255, 0.82) 100%);
+    position: relative;
+    min-height: 410px;
+}
+
+.transactions-table-tab {
+    position: absolute;
+    top: 14px;
+    left: 24px;
+    width: 214px;
+    height: 60px;
+    border-radius: 26px 26px 0 0;
+    background: var(--app-blue);
+    color: #ffffff;
+    font-size: 0.98rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.transactions-table-wrap {
+    overflow-x: auto;
+    margin-top: 40px;
+}
+
+.transactions-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: #ffffff;
+    overflow: hidden;
+    border-radius: 0 0 3px 3px;
+}
+
+.transactions-col-user {
+    width: 28%;
+}
+
+.transactions-col-product {
+    width: 44%;
+}
+
+.transactions-col-date {
+    width: 14%;
+}
+
+.transactions-col-total {
+    width: 14%;
+}
+
+.transactions-table thead th {
+    background: #2218b6;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 800;
+    padding: 13px 14px;
+    text-align: center;
+    border-right: 2px solid rgba(255, 255, 255, 0.72);
+    border-top: 8px solid #2218b6;
+}
+
+.transactions-table thead th:last-child {
+    border-right: 0;
+}
+
+.transactions-table tbody td {
+    padding: 20px 16px;
+    font-size: 1rem;
+    color: #231fc2;
+    font-weight: 700;
+    text-align: center;
+    border-top: 2px solid #c8c8c8;
+    vertical-align: middle;
+    background: rgba(255, 255, 255, 0.96);
+}
+
+.transactions-table tbody td:first-child {
+    font-size: 1rem;
+}
+
+.transactions-table tbody td:nth-child(2) {
+    font-size: 0.96rem;
+}
+
+.transactions-table .empty-row td {
+    color: #3d3d3d;
+}
+
+.transaction-user {
+    display: inline-block;
+    color: #241fbe;
+    font-size: 1.08rem;
+    font-weight: 800;
+}
+
+.transaction-product {
+    display: inline-block;
+    color: #241fbe;
+    font-size: 0.92rem;
+    font-weight: 700;
+    line-height: 1.35;
+}
+
+.transaction-date,
+.transaction-total {
+    display: inline-block;
+    color: #241fbe;
+    font-size: 0.98rem;
+    font-weight: 800;
+}
+
+@media (max-width: 991.98px) {
+    .screen-transactions {
+        width: calc(100% - 24px);
+    }
+
+    .transactions-toolbar {
+        grid-template-columns: 28px 1fr;
+        gap: 12px;
+    }
+
+    .transactions-search-form {
+        grid-column: 1 / -1;
+    }
+
+    .transactions-panel {
+        padding-left: 18px;
+        padding-right: 18px;
+        padding-top: 90px;
+        min-height: 0;
+    }
+
+    .transactions-table-tab {
+        left: 18px;
+        right: 18px;
+        min-width: 0;
+        width: auto;
+    }
+
+    .transactions-table thead {
+        display: none;
+    }
+
+    .transactions-table,
+    .transactions-table tbody,
+    .transactions-table tr,
+    .transactions-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .transactions-table {
+        background: transparent;
+    }
+
+    .transactions-table tbody {
+        display: grid;
+        gap: 14px;
+    }
+
+    .transactions-table tr {
+        background: #ffffff;
+        border-radius: 18px;
+        overflow: hidden;
+    }
+
+    .transactions-table tbody td {
+        border-top: 1px solid #ececec;
+        padding: 12px 16px;
+        text-align: left;
+        position: relative;
+        padding-left: 124px;
+        font-size: 0.98rem;
+    }
+
+    .transactions-table tbody td:first-child {
+        border-top: 0;
+        font-size: 1.08rem;
+    }
+
+    .transaction-user,
+    .transaction-product,
+    .transaction-date,
+    .transaction-total {
+        font-size: inherit;
+    }
+
+    .transactions-table tbody td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 16px;
+        top: 12px;
+        color: #222222;
+        font-weight: 800;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .screen-transactions {
+        width: calc(100% - 10px);
+    }
+
+    .transactions-toolbar {
+        padding: 10px 14px;
+        border-radius: 22px;
+    }
+
+    .transactions-panel {
+        padding: 14px 12px 18px;
+    }
+
+    .transactions-table tbody td {
+        padding-left: 108px;
+    }
+}
